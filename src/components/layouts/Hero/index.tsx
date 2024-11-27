@@ -1,3 +1,5 @@
+import ButtonCV from "@/components/common/ButtonCV";
+import ButtonWA from "@/components/common/ButtonWA";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -24,20 +26,9 @@ const Hero = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button size={"lg"} asChild>
-            <Link
-              href="/CV Muh. Fitron Ansori.pdf"
-              download="CV_Fitron Ansori"
-              target="_blank">
-              Download CV
-            </Link>
-          </Button>
+          <ButtonCV size="lg" />
 
-          <Button size={"lg"} asChild>
-            <Link href="/" target="_blank">
-              Kontak Saya
-            </Link>
-          </Button>
+          <ButtonWA size={"lg"}>Kontak Saya</ButtonWA>
         </div>
 
         <Button size={"lg"} variant={"link"} asChild>
