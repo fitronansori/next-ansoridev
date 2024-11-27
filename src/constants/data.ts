@@ -25,6 +25,10 @@ export const navLinks = [
     name: "Contact",
     href: "/contact",
   },
+  {
+    name: "Login",
+    href: "/sign-in",
+  },
 ];
 
 import {
