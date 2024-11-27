@@ -1,3 +1,5 @@
+import ButtonCV from "@/components/common/ButtonCV";
+import ButtonWA from "@/components/common/ButtonWA";
 import SocialMedia from "@/components/layouts/Stack/SocialMedia";
 import TechStack from "@/components/layouts/Stack/TechStack";
 import { ThemeSwitcher } from "@/components/theme-switcher";
@@ -43,20 +45,9 @@ const ProfilePage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button asChild>
-              <Link
-                href="/CV Muh. Fitron Ansori.pdf"
-                download="CV_Fitron Ansori"
-                target="_blank">
-                Download CV
-              </Link>
-            </Button>
+            <ButtonCV />
 
-            <Button variant={"outline"} asChild>
-              <Link href="/" target="_blank">
-                Kontak Saya
-              </Link>
-            </Button>
+            <ButtonWA variant="outline">Kontak Saya</ButtonWA>
           </div>
 
           <div className="w-full flex flex-col gap-4">
