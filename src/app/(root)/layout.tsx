@@ -5,7 +5,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Header>
-        <ButtonCV />
+        <ButtonCV className="hidden lg:flex" />
       </Header>
       {children}
     </div>
