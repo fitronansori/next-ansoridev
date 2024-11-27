@@ -1,11 +1,9 @@
 import Logo from "@/components/common/Logo";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 
-const Header = () => {
+const Header = ({ children }: { children?: React.ReactNode }) => {
   return (
     <header className="border-b bg-transparent">
       <div className="container h-16 flex items-center justify-between">
@@ -17,14 +15,7 @@ const Header = () => {
           <NavLinks className="hidden lg:block" />
           <ThemeSwitcher />
 
-          <Button className="hidden lg:flex" asChild>
-            <Link
-              href="/CV Muh. Fitron Ansori.pdf"
-              download="CV_Fitron Ansori"
-              target="_blank">
-              Download CV
-            </Link>
-          </Button>
+          {children}
 
           <MobileMenu />
         </div>
