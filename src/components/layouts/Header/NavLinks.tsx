@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/constants/data";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavLinksProps = {
   className?: string;
@@ -9,9 +12,11 @@ type NavLinksProps = {
 };
 
 const NavLinks = ({ className, classNameLink }: NavLinksProps) => {
+  const pathname = usePathname();
+
   return (
     <nav className={cn("", className)}>
-      {navLinks.map((item, index) => (
+      {navLinks.slice(0, 6).map((item, index) => (
         <Button
           variant={"link"}
           key={index}
@@ -20,6 +25,20 @@ const NavLinks = ({ className, classNameLink }: NavLinksProps) => {
           <Link href={item.href}>{item.name}</Link>
         </Button>
       ))}
+
+      {pathname === "/templates" && (
+        <>
+          {navLinks.slice(6, 7).map((item, index) => (
+            <Button
+              variant={"link"}
+              key={index}
+              className={cn("font-semibold lg:hidden", classNameLink)}
+              asChild>
+              <Link href={item.href}>{item.name}</Link>
+            </Button>
+          ))}
+        </>
+      )}
     </nav>
   );
 };
