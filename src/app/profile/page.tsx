@@ -9,13 +9,16 @@ import Link from "next/link";
 const ProfilePage = () => {
   return (
     <section>
-      <div className="relative max-w-md mx-auto min-h-screen px-4 flex items-center justify-center">
-        <div className="absolute top-4 right-4 space-x-4">
+      <div className="relative max-w-md mx-auto px-4 flex items-center justify-center py-4">
+        <div className="absolute top-4 left-4">
           <Button size={"icon"} asChild>
             <Link href="/">
               <ArrowLeftIcon />
             </Link>
           </Button>
+        </div>
+
+        <div className="absolute top-4 right-4">
           <ThemeSwitcher />
         </div>
 
@@ -56,13 +59,17 @@ const ProfilePage = () => {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-4">
             <Button asChild>
               <Link href="/projects">Lihat Portofolio</Link>
             </Button>
 
             <Button asChild>
               <Link href="/certificates">Lihat Sertifikat</Link>
+            </Button>
+
+            <Button className="w-full" asChild>
+              <Link href="/certificates">Lihat Templates</Link>
             </Button>
           </div>
 
