@@ -20,10 +20,7 @@ const ButtonWA = ({
 }: ButtonWAProps) => {
   return (
     <Button size={size} variant={variant} className={cn("", className)} asChild>
-      <Link
-        href="https://api.whatsapp.com/send?phone=085738224566&text=Halo%20Fitron%20Ansori"
-        target="_blank"
-        rel="noopener noreferrer">
+      <Link href="https://api.whatsapp.com/send?phone=+6285738224566&text=Halo%20Fitron%20Ansori">
         {children}{" "}
         <RiWhatsappFill className={cn("", icon ? "block" : "hidden")} />
       </Link>
