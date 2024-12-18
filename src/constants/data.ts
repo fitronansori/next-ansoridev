@@ -2,10 +2,6 @@ import { IconType } from "react-icons";
 
 export const navLinks = [
   {
-    name: "Profile",
-    href: "/profile",
-  },
-  {
     name: "Projects",
     href: "/projects",
   },
@@ -31,18 +27,18 @@ export const navLinks = [
   },
 ];
 
-import {
-  RiHtml5Fill,
-  RiCss3Fill,
-  RiTailwindCssFill,
-  RiJavascriptFill,
-  RiReactjsFill,
-  RiNextjsFill,
-} from "react-icons/ri";
 import { DiPhp } from "react-icons/di";
-import { TbBrandLaravel } from "react-icons/tb";
 import { FaVuejs } from "react-icons/fa6";
+import {
+  RiCss3Fill,
+  RiHtml5Fill,
+  RiJavascriptFill,
+  RiNextjsFill,
+  RiReactjsFill,
+  RiTailwindCssFill,
+} from "react-icons/ri";
 import { SiNuxtdotjs } from "react-icons/si";
+import { TbBrandLaravel } from "react-icons/tb";
 
 type TechStackType = {
   name: string;
@@ -93,8 +89,8 @@ export const techStack: TechStackType = [
 ];
 
 import {
-  RiInstagramLine,
   RiGithubFill,
+  RiInstagramLine,
   RiLinkedinBoxFill,
   RiWhatsappFill,
 } from "react-icons/ri";
@@ -156,6 +152,13 @@ export const projectData = [
     github: "https://github.com/fitrondev/easybank-landing-page",
     website: "https://easybank-landing-page-xi-bay.vercel.app/",
     image: "/assets/images/p4.png",
+  },
+  {
+    id: 5,
+    title: "Aqiqah Lombok",
+    github: "",
+    website: "https://www.aqiqahlombok.online/",
+    image: "/assets/images/p5.png",
   },
 ];
 
