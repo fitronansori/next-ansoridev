@@ -2,14 +2,6 @@ import { IconType } from "react-icons";
 
 export const navLinks = [
   {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    name: "Certificates",
-    href: "/certificates",
-  },
-  {
     name: "Blog",
     href: "/blog",
   },

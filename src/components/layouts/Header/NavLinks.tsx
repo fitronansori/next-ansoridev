@@ -13,7 +13,7 @@ type NavLinksProps = {
 const NavLinks = ({ className, classNameLink }: NavLinksProps) => {
   return (
     <nav className={cn("", className)}>
-      {navLinks.slice(0, 5).map((item, index) => (
+      {navLinks.slice(0, 3).map((item, index) => (
         <Button
           variant={"link"}
           key={index}
@@ -23,7 +23,7 @@ const NavLinks = ({ className, classNameLink }: NavLinksProps) => {
         </Button>
       ))}
 
-      {navLinks.slice(6, 7).map((item, index) => (
+      {navLinks.slice(3, 4).map((item, index) => (
         <Button
           variant={"link"}
           key={index}
