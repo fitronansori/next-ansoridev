@@ -60,7 +60,7 @@ const ProfilePage = () => {
             </Button>
 
             <Button className="w-full" asChild>
-              <Link href="/certificates">Lihat Templates</Link>
+              <Link href="/templates">Lihat Templates</Link>
             </Button>
           </div>
 
