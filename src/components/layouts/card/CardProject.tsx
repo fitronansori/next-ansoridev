@@ -41,11 +41,13 @@ const CardProject = ({ title, github, website, image }: CardProjectType) => {
             <RiChromeFill /> Live Website
           </Link>
         </Button>
-        <Button asChild>
-          <Link href={github} target="_blank" rel="noopener noreferrer">
-            <RiGithubFill /> Github
-          </Link>
-        </Button>
+        {github === "" ? null : (
+          <Button asChild>
+            <Link href={github} target="_blank" rel="noopener noreferrer">
+              <RiGithubFill /> Github
+            </Link>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
