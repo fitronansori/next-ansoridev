@@ -23,7 +23,8 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <div className="fixed top-0 z-[-4] h-screen w-screen bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]"></div>
           {children}
         </ThemeProvider>
