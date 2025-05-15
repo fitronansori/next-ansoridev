@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/constants/data";
 import { cn } from "@/lib/utils";
@@ -13,22 +11,13 @@ type NavLinksProps = {
 const NavLinks = ({ className, classNameLink }: NavLinksProps) => {
   return (
     <nav className={cn("", className)}>
-      {navLinks.slice(0, 3).map((item, index) => (
+      {navLinks.map((item, index) => (
         <Button
           variant={"link"}
           key={index}
           className={cn("font-semibold", classNameLink)}
-          asChild>
-          <Link href={item.href}>{item.name}</Link>
-        </Button>
-      ))}
-
-      {navLinks.slice(3, 4).map((item, index) => (
-        <Button
-          variant={"link"}
-          key={index}
-          className={cn("font-semibold sm:hidden", classNameLink)}
-          asChild>
+          asChild
+        >
           <Link href={item.href}>{item.name}</Link>
         </Button>
       ))}

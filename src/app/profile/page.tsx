@@ -12,14 +12,6 @@ const ProfilePage = () => {
   return (
     <section>
       <div className="relative max-w-md mx-auto px-4 flex items-center justify-center py-4">
-        <div className="absolute top-4 left-4">
-          <Button size={"icon"} asChild>
-            <Link href="/">
-              <ArrowLeftIcon />
-            </Link>
-          </Button>
-        </div>
-
         <div className="absolute top-4 right-4">
           <ThemeSwitcher />
         </div>
