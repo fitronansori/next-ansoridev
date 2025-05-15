@@ -4,7 +4,6 @@ import SocialMedia from "@/components/layouts/Stack/SocialMedia";
 import TechStack from "@/components/layouts/Stack/TechStack";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Button } from "@/components/ui/button";
-import { ArrowLeftIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

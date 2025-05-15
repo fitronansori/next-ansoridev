@@ -2,10 +2,10 @@ import Header from "@/components/layouts/Header";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <main>
       <Header />
       {children}
-    </div>
+    </main>
   );
 };
 export default HomeLayout;
