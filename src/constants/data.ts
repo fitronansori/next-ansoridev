@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 
 export const navLinks = [
   {
-    name: "Digital Products",
+    name: "Digital Product",
     href: "/digital-product",
   },
   {
