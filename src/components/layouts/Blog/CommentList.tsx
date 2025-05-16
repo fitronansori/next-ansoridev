@@ -59,6 +59,7 @@ export function CommentList({ comments, config, isLoading }: CommentListProps) {
               </div>
             </div>
           )}
+
           <div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">

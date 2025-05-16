@@ -10,7 +10,9 @@ export type FontMap = Record<
     lang?: string;
   }
 >;
+
 let loadedFonts: FontMap | null = null;
+
 const loadFontsRaw = async (): Promise<FontMap> => {
   return {
     "inter-semibold": {
@@ -21,6 +23,7 @@ const loadFontsRaw = async (): Promise<FontMap> => {
       weight: 600,
       style: "normal",
     },
+
     "inter-regular": {
       name: "Inter",
       data: await fetch(
@@ -31,10 +34,13 @@ const loadFontsRaw = async (): Promise<FontMap> => {
     },
   };
 };
+
 export const loadFonts = async (): Promise<FontMap> => {
   if (loadedFonts) {
     return loadedFonts;
   }
+
   loadedFonts = await loadFontsRaw();
+
   return loadedFonts;
 };

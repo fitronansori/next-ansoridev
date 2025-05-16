@@ -5,6 +5,7 @@ import urlJoin from "url-join";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const result = await wisp.getPosts();
+
   return [
     {
       url: urlJoin(config.baseUrl, "blog"),

@@ -58,6 +58,7 @@ export const generateBannerImage = (
             {title}
           </div>
         </div>
+
         {brand && (
           <div
             style={{

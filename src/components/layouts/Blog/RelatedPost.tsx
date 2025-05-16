@@ -32,6 +32,7 @@ export const RelatedPosts: FunctionComponent<{
                 />
               </AspectRatio>
             </Link>
+
             <div className="prose prose-sm dark:prose-invert p-4">
               <h3 className="line-clamp-2">{post.title}</h3>
               <p className="line-clamp-3">{post.description}</p>

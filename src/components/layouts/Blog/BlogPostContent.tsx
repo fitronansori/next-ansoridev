@@ -53,10 +53,12 @@ export const PostContent = ({ content }: { content: string }) => {
 export const BlogPostContent = ({ post }: { post: GetPostResult["post"] }) => {
   if (!post) return null;
   const { title, publishedAt, createdAt, content, tags } = post;
+
   return (
     <div>
-      <div className="prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words">
+      <div className="prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 mt-5 md:mt-10 break-words">
         <h1>{title}</h1>
+
         <PostContent content={content} />
 
         <div className="mt-10 opacity-40 text-sm">
@@ -70,6 +72,7 @@ export const BlogPostContent = ({ post }: { post: GetPostResult["post"] }) => {
             </Link>
           ))}
         </div>
+
         <div className="text-sm opacity-40 mt-4">
           {Intl.DateTimeFormat("en-US").format(
             new Date(publishedAt || createdAt)

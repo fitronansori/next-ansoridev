@@ -2,7 +2,13 @@ import { config } from "@/config";
 import type { MetadataRoute } from "next";
 import urlJoin from "url-join";
 
-const staticPaths = ["certificates", "services", "templates", "projects"];
+const staticPaths = [
+  "certificates",
+  "services",
+  "templates",
+  "projects",
+  "profile",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = staticPaths.map((path) => ({
@@ -10,5 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     priority: 0.9,
   }));
+
   return paths;
 }

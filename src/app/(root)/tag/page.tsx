@@ -24,12 +24,13 @@ export default async function Page() {
   const result = await wisp.getTags();
 
   return (
-    <div className="container mx-auto px-5">
-      <div className="mt-20 mb-12 text-center">
-        <h1 className="mb-2 text-5xl font-bold">Tags</h1>
-        <p className="text-lg opacity-50">List of all tags</p>
+    <div className="container py-5 lg:py-10">
+      <div className="text-center">
+        <h1 className="mb-2 text-3xl md:text-5xl font-bold">Tags</h1>
+        <p className="md:text-lg opacity-50">List of all tags</p>
       </div>
-      <div className="my-10 max-w-6xl text-balance text-center text-xl mb-48">
+
+      <div className="my-10 max-w-6xl mx-auto text-balance text-center text-xl mb-48">
         {result.tags.map((tag) => (
           <Link
             key={tag.id}

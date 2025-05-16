@@ -125,7 +125,7 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <FormField
             control={form.control}
@@ -144,6 +144,7 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="email"

@@ -13,6 +13,7 @@ const BlogPage = async (props: {
     <section className="py-5 lg:py-10">
       <div className="container">
         <BlogPostsPreview posts={result.posts} />
+
         <BlogPostsPagination pagination={result.pagination} />
       </div>
     </section>

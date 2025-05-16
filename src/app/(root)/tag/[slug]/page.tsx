@@ -34,14 +34,16 @@ const Page = async (props: {
   const result = await wisp.getPosts({ limit: 6, tags: [slug], page });
 
   return (
-    <div className="container mx-auto px-5 mb-10">
+    <div className="container py-5 lg:py-10">
       <Link href="/">
         <Badge className="px-2 py-1">
           <CircleX className="inline-block w-4 h-4 mr-2" />
           Posts tagged with <strong className="mx-2">#{slug}</strong>{" "}
         </Badge>
       </Link>
+
       <BlogPostsPreview posts={result.posts} />
+
       <BlogPostsPagination
         pagination={result.pagination}
         basePath={`/tag/${slug}/?page=`}
