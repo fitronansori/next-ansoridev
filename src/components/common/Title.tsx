@@ -1,15 +1,19 @@
+import { cn } from "@/lib/utils";
+
 type TitleProps = {
   title: string;
   desc: string;
+  className?: string;
 };
 
-const Title = ({ title, desc }: TitleProps) => {
+const Title = ({ title, desc, className }: TitleProps) => {
   return (
-    <div>
-      <h3 className="text-3xl sm:text-4xl font-bold text-center lg:text-start">
+    <div className={cn("", className)}>
+      <h3 className="text-xl sm:text-2xl font-bold text-center lg:text-start">
         {title}
       </h3>
-      <p className="sm:text-lg font-semibold text-center lg:text-start">
+
+      <p className="text-sm text-center lg:text-start text-muted-foreground">
         {desc}
       </p>
     </div>
