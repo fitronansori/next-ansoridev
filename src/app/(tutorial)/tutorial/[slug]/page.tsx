@@ -71,7 +71,9 @@ export default async function Page(props: PageProps) {
               <MDXRemote source={source} components={useMDXComponents} />
             </div>
 
-            <div className="hidden w-full max-w-[350px] border-l p-4">asas</div>
+            <div className="hidden lg:block w-full max-w-[350px] border-l p-4">
+              asas
+            </div>
           </div>
         </div>
       </SidebarProvider>
