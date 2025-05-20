@@ -217,3 +217,37 @@ export const certificatesData = [
     date: "Desember 2023",
   },
 ];
+
+export type TutorialType = {
+  slug: string;
+  title: string;
+  desc: string;
+  image: string;
+};
+
+export const tutorials_data: TutorialType[] = [
+  {
+    slug: "html",
+    title: "Kursus HTML",
+    desc: "Belajar dasar-dasar HTML untuk membangun struktur halaman web.",
+    image: "",
+  },
+  {
+    slug: "css",
+    title: "Kursus CSS",
+    desc: "Pelajari cara mempercantik tampilan web dengan CSS.",
+    image: "",
+  },
+  {
+    slug: "js",
+    title: "Kursus JavaScript",
+    desc: "Kuasai JavaScript untuk membuat web interaktif dan dinamis.",
+    image: "",
+  },
+  {
+    slug: "react",
+    title: "Kursus React",
+    desc: "Bangun aplikasi web modern dengan React.",
+    image: "",
+  },
+];
