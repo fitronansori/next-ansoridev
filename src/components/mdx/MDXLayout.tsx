@@ -3,5 +3,7 @@ interface MDXLayoutProps {
 }
 
 export default function MDXLayout({ children }: MDXLayoutProps) {
-  return <div className="!max-w-none prose dark:prose-invert">{children}</div>;
+  return (
+    <div className="lg:!max-w-none prose dark:prose-invert">{children}</div>
+  );
 }

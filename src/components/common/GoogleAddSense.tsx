@@ -5,13 +5,11 @@ interface GoogleAddSenseProps {
   p_id?: string;
 }
 
-const GoogleAddSense: React.FC<GoogleAddSenseProps> = ({
-  p_id = process.env.NEXT_PUBLIC_ADSENSE_CLIENT,
-}) => {
+const GoogleAddSense: React.FC<GoogleAddSenseProps> = () => {
   return (
     <Script
       async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${p_id}`}
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`}
       crossOrigin="anonymous"
       strategy="afterInteractive"
     />

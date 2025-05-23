@@ -77,6 +77,12 @@ export default async function Page(props: PageProps) {
                 <MDXRemote source={source} components={useMDXComponents} />
               </MDXLayout>
 
+              <AddSlot
+                ad_format="auto"
+                ad_full_width_responsive="true"
+                style={{ display: "block" }}
+              />
+
               <TutorialPagination list={list} selected={selected} />
             </div>
 
