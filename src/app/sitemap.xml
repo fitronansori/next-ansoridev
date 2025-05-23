@@ -8,4 +8,7 @@
     <sitemap>
         <loc>https://ansoridev.site/tag/sitemap.xml</loc>
     </sitemap>
+    <sitemap>
+        <loc>https://ansoridev.site/tutorial/sitemap.xml</loc>
+    </sitemap>
 </sitemapindex>

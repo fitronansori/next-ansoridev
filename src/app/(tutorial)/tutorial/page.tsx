@@ -2,6 +2,22 @@ import { tutorials_data } from "@/constants/data";
 import TutorialCard from "@/components/layouts/card/TutorialCard";
 import Header from "@/components/layouts/Header";
 import Title from "@/components/common/Title";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Tutorial | Ansori Dev",
+    description:
+      "Kumpulan tutorial pemrograman dan web development oleh Ansori Dev.",
+    openGraph: {
+      title: "Tutorial | Ansori Dev",
+      description:
+        "Kumpulan tutorial pemrograman dan web development oleh Ansori Dev.",
+      url: "https://ansoridev.com/tutorial",
+      type: "website",
+    },
+  };
+}
 
 export default function TutorialPage() {
   return (
