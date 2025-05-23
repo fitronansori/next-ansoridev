@@ -6,6 +6,8 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useMDXComponents } from "@/mdx-components";
 import TutorialHeader from "@/components/layouts/TutorialHeader";
+import MDXLayout from "@/components/mdx/MDXLayout";
+import TutorialPagination from "@/components/mdx/TutorialPagination";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -64,15 +66,21 @@ export default async function Page(props: PageProps) {
         />
 
         <div className="w-full bg-background">
-          <TutorialHeader title={slug} />
+          <div className="sticky top-0 z-10 bg-background">
+            <TutorialHeader title={slug} />
+          </div>
 
-          <div className="max-w-screen prose flex gap-4">
-            <div className="w-full p-4">
-              <MDXRemote source={source} components={useMDXComponents} />
+          <div className="w-full flex justify-between gap-4">
+            <div className="flex-1 p-4 space-y-4">
+              <MDXLayout>
+                <MDXRemote source={source} components={useMDXComponents} />
+              </MDXLayout>
+
+              <TutorialPagination list={list} selected={selected} />
             </div>
 
-            <div className="hidden lg:block w-full max-w-[350px] border-l p-4">
-              asas
+            <div className="hidden lg:block w-[300px] border-l p-4 sticky top-16 h-[calc(100vh-64px)] overflow-auto">
+              Iklan
             </div>
           </div>
         </div>
