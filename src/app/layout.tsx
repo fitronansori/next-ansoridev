@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/components/query-provider";
-import GoogleAdsense from "@/components/common/GoogleAddSense";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -35,7 +34,6 @@ export default function RootLayout({
           </ThemeProvider>
         </QueryProvider>
       </body>
-      <GoogleAdsense pId="2400557873570949" />
     </html>
   );
 }
