@@ -8,7 +8,6 @@ import { useMDXComponents } from "@/mdx-components";
 import TutorialHeader from "@/components/layouts/TutorialHeader";
 import MDXLayout from "@/components/mdx/MDXLayout";
 import TutorialPagination from "@/components/mdx/TutorialPagination";
-import GoogleAdsense from "@/components/common/GoogleAddSense";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -80,22 +79,7 @@ export default async function Page(props: PageProps) {
               <TutorialPagination list={list} selected={selected} />
             </div>
 
-            <div className="hidden lg:block w-[300px] border-l p-4 sticky top-16 h-[calc(100vh-64px)] overflow-auto">
-              <GoogleAdsense pId="2400557873570949" />
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block" }}
-                data-ad-client="ca-pub-2400557873570949"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              ></ins>
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
-                }}
-              />
-            </div>
+            <div className="hidden lg:block w-[300px] border-l p-4 sticky top-16 h-[calc(100vh-64px)] overflow-auto"></div>
           </div>
         </div>
       </SidebarProvider>
