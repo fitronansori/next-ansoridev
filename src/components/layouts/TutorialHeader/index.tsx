@@ -7,7 +7,7 @@ type TutorialHeaderProps = {
 
 const TutorialHeader = ({ title }: TutorialHeaderProps) => {
   return (
-    <section className="border-b">
+    <section className="sticky top-0 z-10 border-b bg-background">
       <div className="p-3.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <SidebarTrigger />
