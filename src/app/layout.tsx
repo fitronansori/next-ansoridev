@@ -35,7 +35,7 @@ export default function RootLayout({
           </ThemeProvider>
         </QueryProvider>
       </body>
-      <GoogleAdsense pId="2400557873570949" />
+      <GoogleAdsense />
     </html>
   );
 }
