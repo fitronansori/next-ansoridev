@@ -228,26 +228,26 @@ export type TutorialType = {
 export const tutorials_data: TutorialType[] = [
   {
     slug: "html",
-    title: "Kursus HTML",
+    title: "Tutorial HTML",
     desc: "Belajar dasar-dasar HTML untuk membangun struktur halaman web.",
-    image: "",
+    image: "/assets/images/t-html.png",
   },
   {
     slug: "css",
-    title: "Kursus CSS",
+    title: "Tutorial CSS",
     desc: "Pelajari cara mempercantik tampilan web dengan CSS.",
-    image: "",
+    image: "/assets/images/t-css.png",
   },
   {
     slug: "js",
-    title: "Kursus JavaScript",
+    title: "Tutorial JavaScript",
     desc: "Kuasai JavaScript untuk membuat web interaktif dan dinamis.",
-    image: "",
+    image: "/assets/images/t-js.png",
   },
   {
     slug: "react",
-    title: "Kursus React",
+    title: "Tutorial React",
     desc: "Bangun aplikasi web modern dengan React.",
-    image: "",
+    image: "/assets/images/t-react.png",
   },
 ];

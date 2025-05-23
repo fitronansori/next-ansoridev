@@ -17,7 +17,7 @@ const TutorialCard = ({ tutorial }: TutorialCardProps) => {
   return (
     <Card className="w-full max-w-sm overflow-hidden transition-all hover:shadow-lg p-0 gap-4">
       <CardHeader className="p-0">
-        <div className="relative h-48">
+        <div className="relative aspect-video">
           <Image
             src={tutorial.image || "/assets/images/placeholder.webp"}
             alt={tutorial.title}
