@@ -9,6 +9,8 @@ import TutorialHeader from "@/components/layouts/TutorialHeader";
 import MDXLayout from "@/components/mdx/MDXLayout";
 import TutorialPagination from "@/components/mdx/TutorialPagination";
 import AddSlot from "@/components/common/AddSlot";
+import SupportMe from "@/components/layouts/RightSidebar/SupportMe";
+import SocialAccount from "@/components/layouts/RightSidebar/SocialAccount";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -84,12 +86,14 @@ export default async function Page(props: PageProps) {
               <TutorialPagination list={list} selected={selected} />
             </div>
 
-            <div className="hidden lg:block w-[300px] border-l p-4 sticky top-16 h-[calc(100vh-64px)] overflow-auto">
+            <div className="hidden lg:block w-[300px] border-l p-4 sticky top-16 h-[calc(100vh-64px)] overflow-auto space-y-2">
               <AddSlot
                 ad_format="auto"
                 ad_full_width_responsive="true"
                 style={{ display: "block", minHeight: 250 }}
               />
+              <SupportMe />
+              <SocialAccount />
             </div>
           </div>
         </div>

@@ -23,6 +23,19 @@ export const navLinks = [
   },
 ];
 
+export const supportData = [
+  {
+    title: "Trakteer",
+    link: "https://trakteer.id/ansoridev/tip",
+    icon: "/assets/logo/trakteer.png",
+  },
+  {
+    title: "Saweria",
+    link: "https://saweria.co/fitronansori",
+    icon: "/assets/logo/saweria.png",
+  },
+];
+
 import { DiPhp } from "react-icons/di";
 import { FaVuejs } from "react-icons/fa6";
 import {
@@ -116,6 +129,31 @@ export const socialData: SocialType = [
   {
     name: "WhatsApp",
     url: "https://api.whatsapp.com/send?phone=085738224566&text=Halo%20Fitron%20Ansori",
+    icon: RiWhatsappFill,
+  },
+];
+
+import { FaYoutube, FaTiktok } from "react-icons/fa";
+
+export const socialAccountData: SocialType = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/ansori.dev",
+    icon: RiInstagramLine,
+  },
+  {
+    name: "Youtube",
+    url: "https://www.youtube.com/@ansoridev/videos",
+    icon: FaYoutube,
+  },
+  {
+    name: "Tiktok",
+    url: "https://www.tiktok.com/@ansori.dev",
+    icon: FaTiktok,
+  },
+  {
+    name: "WhatsApp",
+    url: "https://whatsapp.com/channel/0029VbAZ7gKIHphH4MeceE0W",
     icon: RiWhatsappFill,
   },
 ];
