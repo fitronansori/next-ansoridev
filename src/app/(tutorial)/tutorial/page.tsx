@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Tutorial | Ansori Dev",
+    title: "Tutorial",
     description:
       "Kumpulan tutorial pemrograman dan web development oleh Ansori Dev.",
     openGraph: {

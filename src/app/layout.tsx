@@ -6,12 +6,27 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/components/query-provider";
 import GoogleAdsense from "@/components/common/GoogleAddSense";
+import { config } from "@/config";
+import { signOgImageUrl } from "@/lib/og-image";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Ansori Dev",
-  description: "Personal blog of Ansori",
+  title: {
+    absolute: config.blog.metadata.title.absolute,
+    default: config.blog.metadata.title.default,
+    template: config.blog.metadata.title.template,
+  },
+  description: config.blog.metadata.description,
+  openGraph: {
+    title: config.blog.metadata.title.default,
+    description: config.blog.metadata.description,
+    images: [
+      signOgImageUrl({
+        title: config.blog.name,
+      }),
+    ],
+  },
 };
 
 export default function RootLayout({
