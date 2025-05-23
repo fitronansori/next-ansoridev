@@ -33,12 +33,12 @@ const CardCertificates = ({
 }: CardCertificateType) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 pt-0 pb-4 gap-4">
-      <div className="relative h-52 bg-gray-100">
+      <div className="relative aspect-video bg-gray-100">
         <Image
           src={image || "/assets/images/placeholder.webp"}
           alt="Sertifikat AWS"
           fill
-          className="size-full object-cover"
+          className="size-full object-fill"
         />
 
         <div className="absolute top-3 right-3">

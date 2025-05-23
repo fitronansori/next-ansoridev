@@ -33,7 +33,7 @@ const CardProject = ({
 }: CardProjectType) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col pt-0 pb-4 gap-4">
-      <div className="relative h-52 bg-gray-100">
+      <div className="relative aspect-video bg-gray-100">
         <Image
           src={image || "/assets/images/placeholder.webp"}
           alt="E-Commerce Website"
@@ -56,7 +56,11 @@ const CardProject = ({
       <CardContent className="px-4 flex-grow">
         <div className="flex flex-wrap gap-2">
           {tools.map((tool, index) => (
-            <Badge key={index} variant={"outline"} className="bg-gray-100">
+            <Badge
+              key={index}
+              variant={"outline"}
+              className="bg-gray-100 dark:text-background"
+            >
               {tool}
             </Badge>
           ))}
