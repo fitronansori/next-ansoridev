@@ -45,7 +45,7 @@ export function AppSidebar({ items }: AppSidebarProps) {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={item.is_active}>
-                    <Link href={item.url}>
+                    <Link href={item.url} className="capitalize">
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
