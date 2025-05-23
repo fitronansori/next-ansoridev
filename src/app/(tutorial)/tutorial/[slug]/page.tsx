@@ -67,11 +67,9 @@ export default async function Page(props: PageProps) {
         />
 
         <div className="w-full bg-background">
-          <div className="sticky top-0 z-10 bg-background">
-            <TutorialHeader title={slug} />
-          </div>
+          <TutorialHeader title={slug} />
 
-          <div className="w-full flex justify-between gap-4">
+          <div className="w-full flex justify-between gap-4 -z-10">
             <div className="flex-1 p-4 space-y-4">
               <MDXLayout>
                 <MDXRemote source={source} components={useMDXComponents} />
