@@ -1,0 +1,397 @@
+# CSS Warna dan Background
+
+Warna adalah salah satu elemen terpenting dalam desain web. Dengan warna yang tepat, website Anda akan terlihat lebih **menarik**, **profesional**, dan **mudah dibaca**.
+
+## Cara Menulis Warna dalam CSS
+
+Ada beberapa cara untuk menulis warna dalam CSS:
+
+### 1. Nama Warna (Color Names)
+
+CSS menyediakan 147 nama warna yang bisa langsung digunakan:
+
+```css
+.element {
+  color: red; /* Merah */
+  background-color: blue; /* Biru */
+  border-color: green; /* Hijau */
+}
+```
+
+**Warna populer:**
+
+- `red`, `blue`, `green`, `yellow`, `orange`
+- `black`, `white`, `gray`, `silver`
+- `purple`, `pink`, `brown`, `cyan`
+
+### 2. Hex Color (Hexadecimal)
+
+Format paling populer menggunakan tanda `#` diikuti 6 karakter:
+
+```css
+.element {
+  color: #ff0000; /* Merah */
+  background-color: #0000ff; /* Biru */
+  border-color: #00ff00; /* Hijau */
+}
+```
+
+**Hex shorthand** (3 karakter):
+
+```css
+.element {
+  color: #f00; /* Sama dengan #FF0000 */
+  background-color: #00f; /* Sama dengan #0000FF */
+}
+```
+
+### 3. RGB (Red, Green, Blue)
+
+Menggunakan nilai 0-255 untuk setiap warna:
+
+```css
+.element {
+  color: rgb(255, 0, 0); /* Merah */
+  background-color: rgb(0, 0, 255); /* Biru */
+  border-color: rgb(0, 255, 0); /* Hijau */
+}
+```
+
+### 4. RGBA (RGB + Alpha/Transparansi)
+
+Sama seperti RGB tapi dengan transparansi (0.0 - 1.0):
+
+```css
+.element {
+  background-color: rgba(255, 0, 0, 0.5); /* Merah 50% transparan */
+  color: rgba(0, 0, 0, 0.8); /* Hitam 80% opacity */
+}
+```
+
+## Warna Text
+
+### Color Property
+
+```css
+.judul {
+  color: #333333; /* Abu-abu gelap untuk readability */
+}
+
+.subtitle {
+  color: #666666; /* Abu-abu medium */
+}
+
+.muted {
+  color: #999999; /* Abu-abu terang untuk text sekunder */
+}
+```
+
+### Contoh Praktis
+
+```css
+.header {
+  color: white;
+  background-color: #2c3e50; /* Biru gelap */
+}
+
+.warning {
+  color: #d32f2f; /* Merah untuk peringatan */
+}
+
+.success {
+  color: #388e3c; /* Hijau untuk sukses */
+}
+
+.info {
+  color: #1976d2; /* Biru untuk informasi */
+}
+```
+
+## Background
+
+### Background Color
+
+```css
+.container {
+  background-color: #f5f5f5; /* Abu-abu sangat terang */
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.highlight {
+  background-color: #fff3cd; /* Kuning terang untuk highlight */
+}
+```
+
+### Background Image
+
+```css
+.hero {
+  background-image: url("gambar.jpg");
+  background-size: cover; /* Gambar menutupi seluruh area */
+  background-position: center; /* Posisi gambar di tengah */
+  background-repeat: no-repeat; /* Tidak diulang */
+}
+```
+
+### Background Gradient
+
+```css
+.gradient-box {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.vertical-gradient {
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.diagonal-gradient {
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+```
+
+## Kombinasi Warna yang Baik
+
+### 1. Website Bisnis (Professional)
+
+```css
+.business-theme {
+  background-color: #ffffff; /* Background putih */
+  color: #333333; /* Text abu gelap */
+}
+
+.business-header {
+  background-color: #2c3e50; /* Header biru gelap */
+  color: #ffffff; /* Text putih */
+}
+
+.business-button {
+  background-color: #3498db; /* Button biru */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+```
+
+### 2. Website Kreatif (Colorful)
+
+```css
+.creative-theme {
+  background-color: #f8f9ff; /* Background biru muda */
+  color: #2d3748; /* Text abu gelap */
+}
+
+.creative-accent {
+  background-color: #ff6b6b; /* Merah coral */
+  color: #ffffff;
+}
+
+.creative-secondary {
+  background-color: #4ecdc4; /* Tosca */
+  color: #ffffff;
+}
+```
+
+### 3. Website Dark Mode
+
+```css
+.dark-theme {
+  background-color: #1a202c; /* Background gelap */
+  color: #e2e8f0; /* Text terang */
+}
+
+.dark-card {
+  background-color: #2d3748; /* Card abu gelap */
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+}
+```
+
+## Contoh Praktis Lengkap
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: white;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .success-message {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        margin: 20px 0;
+      }
+
+      .warning-message {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 15px;
+        border: 1px solid #ffeaa7;
+        border-radius: 4px;
+        margin: 20px 0;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 10px 5px;
+      }
+
+      .button-secondary {
+        background-color: #6c757d;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 10px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Website Colorful</h1>
+      <p>Contoh penggunaan warna dalam CSS</p>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h2 style="color: #2c3e50;">Selamat Datang!</h2>
+        <p style="color: #555;">
+          Ini adalah contoh website dengan penggunaan warna yang baik.
+        </p>
+
+        <div class="success-message">
+          ✅ Pesan sukses dengan warna hijau yang menenangkan
+        </div>
+
+        <div class="warning-message">
+          ⚠️ Pesan peringatan dengan warna kuning yang eye-catching
+        </div>
+
+        <button class="button">Tombol Utama</button>
+        <button class="button-secondary">Tombol Sekunder</button>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+## Tips Memilih Warna
+
+### 1. Kontras yang Cukup
+
+Pastikan text mudah dibaca:
+
+```css
+/* ✅ Good - Kontras tinggi */
+.good-contrast {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* ❌ Bad - Kontras rendah */
+.bad-contrast {
+  background-color: #cccccc;
+  color: #aaaaaa;
+}
+```
+
+### 2. Konsistensi
+
+Gunakan palet warna yang konsisten:
+
+```css
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+}
+
+.button-primary {
+  background-color: var(--primary-color);
+}
+
+.button-success {
+  background-color: var(--success-color);
+}
+```
+
+### 3. Accessibility
+
+Perhatikan aksesibilitas untuk pengguna dengan gangguan penglihatan:
+
+```css
+/* Gunakan warna dengan kontras minimal 4.5:1 */
+.accessible-text {
+  background-color: #ffffff;
+  color: #212529; /* Kontras ratio: 16.75:1 */
+}
+```
+
+## Tools untuk Memilih Warna
+
+1. **Adobe Color** - color.adobe.com
+2. **Coolors** - coolors.co
+3. **Material Design Colors** - material.io/design/color
+4. **CSS Gradient Generator** - cssgradient.io
+
+## Latihan
+
+Coba buat:
+
+1. **Card dengan gradient background**
+2. **Button dengan hover effect**
+3. **Alert box dengan warna yang sesuai**
+4. **Dark theme untuk website**
+
+## Kesimpulan
+
+Warna adalah elemen penting dalam desain web yang dapat:
+
+- **Meningkatkan user experience**
+- **Menyampaikan emosi dan brand**
+- **Meningkatkan readability**
+- **Membuat website lebih menarik**
+
+Ingat untuk selalu memperhatikan **kontras**, **konsistensi**, dan **accessibility** saat memilih warna!
+
+Selanjutnya kita akan mempelajari **Typography** - cara mengatur font dan text styling yang baik.

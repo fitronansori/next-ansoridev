@@ -1,0 +1,875 @@
+# ES6+ Features: JavaScript Modern
+
+ES6 (ECMAScript 2015) dan versi selanjutnya membawa **fitur-fitur modern** yang membuat JavaScript lebih powerful dan mudah digunakan. Mari pelajari fitur-fitur yang paling penting!
+
+## Arrow Functions
+
+Arrow functions adalah **cara pendek** menulis function dengan syntax yang lebih bersih.
+
+### 1. Syntax Dasar
+
+```javascript
+// Function tradisional
+function tambah_tradisional(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const tambah_arrow = (a, b) => {
+  return a + b;
+};
+
+// Arrow function pendek (satu baris)
+const tambah_pendek = (a, b) => a + b;
+
+// Arrow function dengan satu parameter (tanpa kurung)
+const kuadrat = (x) => x * x;
+
+console.log(tambah_tradisional(5, 3)); // 8
+console.log(tambah_arrow(5, 3)); // 8
+console.log(tambah_pendek(5, 3)); // 8
+console.log(kuadrat(4)); // 16
+```
+
+### 2. Arrow Function dalam Array Methods
+
+```javascript
+let angka_list = [1, 2, 3, 4, 5];
+
+// Dengan function tradisional
+let kuadrat_tradisional = angka_list.map(function (angka) {
+  return angka * angka;
+});
+
+// Dengan arrow function
+let kuadrat_modern = angka_list.map((angka) => angka * angka);
+
+// Filter dengan arrow function
+let angka_genap = angka_list.filter((angka) => angka % 2 === 0);
+
+// Reduce dengan arrow function
+let total = angka_list.reduce((sum, angka) => sum + angka, 0);
+
+console.log("Kuadrat:", kuadrat_modern); // [1, 4, 9, 16, 25]
+console.log("Genap:", angka_genap); // [2, 4]
+console.log("Total:", total); // 15
+```
+
+## Template Literals
+
+Template literals memungkinkan kita **menyisipkan variabel** langsung dalam string dengan syntax yang bersih.
+
+### 1. String Interpolation
+
+```javascript
+let nama = "Ahmad Rizki";
+let umur = 25;
+let kota = "Jakarta";
+
+// Cara lama (concatenation)
+let intro_lama =
+  "Halo, nama saya " + nama + ", umur " + umur + " tahun, tinggal di " + kota;
+
+// Cara modern (template literals)
+let intro_modern = `Halo, nama saya ${nama}, umur ${umur} tahun, tinggal di ${kota}`;
+
+console.log(intro_modern);
+// Output: "Halo, nama saya Ahmad Rizki, umur 25 tahun, tinggal di Jakarta"
+```
+
+### 2. Multi-line Strings
+
+```javascript
+// Cara lama
+let email_lama =
+  "Halo " +
+  nama +
+  ",\n\n" +
+  "Terima kasih telah mendaftar.\n" +
+  "Akun Anda telah aktif.\n\n" +
+  "Salam,\nTim Support";
+
+// Cara modern
+let email_modern = `Halo ${nama},
+
+Terima kasih telah mendaftar.
+Akun Anda telah aktif.
+
+Salam,
+Tim Support`;
+
+console.log(email_modern);
+```
+
+### 3. Expression dalam Template
+
+```javascript
+let produk = {
+  nama: "Laptop Gaming",
+  harga: 15000000,
+  diskon: 10,
+};
+
+let harga_setelah_diskon = produk.harga * (1 - produk.diskon / 100);
+
+let info_produk = `
+=== INFO PRODUK ===
+Produk: ${produk.nama}
+Harga Normal: Rp ${produk.harga.toLocaleString()}
+Diskon: ${produk.diskon}%
+Harga Diskon: Rp ${harga_setelah_diskon.toLocaleString()}
+Hemat: Rp ${(produk.harga - harga_setelah_diskon).toLocaleString()}
+`;
+
+console.log(info_produk);
+```
+
+## Destructuring
+
+Destructuring memungkinkan kita **mengekstrak nilai** dari array atau object dengan syntax yang ringkas.
+
+### 1. Array Destructuring
+
+```javascript
+let koordinat = [10, 20, 30];
+
+// Cara lama
+let x_lama = koordinat[0];
+let y_lama = koordinat[1];
+let z_lama = koordinat[2];
+
+// Cara modern (destructuring)
+let [x, y, z] = koordinat;
+
+console.log(`Koordinat: x=${x}, y=${y}, z=${z}`);
+
+// Destructuring dengan default value
+let [a, b, c, d = 0] = [1, 2, 3];
+console.log(`a=${a}, b=${b}, c=${c}, d=${d}`); // d=0 (default)
+
+// Skip elemen
+let [first, , third] = [1, 2, 3];
+console.log(`First: ${first}, Third: ${third}`); // Skip middle element
+```
+
+### 2. Object Destructuring
+
+```javascript
+let user_data = {
+  nama: "Sarah Indah",
+  email: "sarah@email.com",
+  umur: 28,
+  kota: "Bandung",
+  pekerjaan: "UI Designer",
+};
+
+// Cara lama
+let nama_lama = user_data.nama;
+let email_lama = user_data.email;
+
+// Cara modern (destructuring)
+let { nama, email, umur, kota } = user_data;
+
+console.log(`${nama} (${umur}) - ${email} dari ${kota}`);
+
+// Destructuring dengan rename
+let { nama: nama_lengkap, pekerjaan: job } = user_data;
+console.log(`${nama_lengkap} bekerja sebagai ${job}`);
+
+// Destructuring dengan default value
+let { tinggi = 165, berat = 55 } = user_data;
+console.log(`Tinggi: ${tinggi}cm, Berat: ${berat}kg`);
+```
+
+### 3. Nested Destructuring
+
+```javascript
+let mahasiswa = {
+  info_pribadi: {
+    nama: "Budi Santoso",
+    nim: "20210001",
+    angkatan: 2021,
+  },
+  alamat: {
+    jalan: "Jl. Sudirman No. 123",
+    kota: "Jakarta",
+    kode_pos: "12190",
+  },
+  nilai: [85, 90, 78, 92],
+};
+
+// Destructuring nested object
+let {
+  info_pribadi: { nama, nim },
+  alamat: { kota },
+  nilai: [nilai1, nilai2],
+} = mahasiswa;
+
+console.log(`${nama} (${nim}) dari ${kota}`);
+console.log(`Nilai pertama: ${nilai1}, Nilai kedua: ${nilai2}`);
+```
+
+## Spread Operator (...)
+
+Spread operator memungkinkan kita **menyebarkan** elemen array atau properties object.
+
+### 1. Array Spread
+
+```javascript
+let buah_tropis = ["mangga", "nanas", "pepaya"];
+let buah_lokal = ["apel", "jeruk", "pisang"];
+
+// Gabungkan array
+let semua_buah = [...buah_tropis, ...buah_lokal];
+console.log("Semua buah:", semua_buah);
+
+// Copy array
+let buah_backup = [...buah_tropis];
+buah_backup.push("durian");
+console.log("Original:", buah_tropis); // Tidak berubah
+console.log("Backup:", buah_backup); // Ada durian
+
+// Array sebagai arguments function
+function hitung_total(...angka) {
+  return angka.reduce((total, num) => total + num, 0);
+}
+
+console.log(hitung_total(1, 2, 3, 4, 5)); // 15
+console.log(hitung_total(...[10, 20, 30])); // 60
+```
+
+### 2. Object Spread
+
+```javascript
+let info_dasar = {
+  nama: "Ahmad Rizki",
+  umur: 25,
+};
+
+let info_kontak = {
+  email: "ahmad@email.com",
+  phone: "08123456789",
+};
+
+// Gabungkan object
+let profil_lengkap = {
+  ...info_dasar,
+  ...info_kontak,
+  kota: "Jakarta",
+  status: "aktif",
+};
+
+console.log(profil_lengkap);
+
+// Update object dengan spread
+let profil_update = {
+  ...profil_lengkap,
+  umur: 26, // Update umur
+  alamat: "Jl. Merdeka No. 45", // Tambah alamat
+};
+
+console.log("Profil updated:", profil_update);
+```
+
+### 3. Rest Parameters
+
+```javascript
+// Rest parameters - kebalikan dari spread
+function tampilkan_info(nama, umur, ...hobbies) {
+  console.log(`Nama: ${nama}`);
+  console.log(`Umur: ${umur}`);
+  console.log(`Hobbies: ${hobbies.join(", ")}`);
+}
+
+tampilkan_info("Budi", 23, "coding", "gaming", "reading", "traveling");
+
+// Destructuring dengan rest
+let [pertama, kedua, ...sisanya] = [1, 2, 3, 4, 5, 6];
+console.log("Pertama:", pertama); // 1
+console.log("Kedua:", kedua); // 2
+console.log("Sisanya:", sisanya); // [3, 4, 5, 6]
+
+// Object destructuring dengan rest
+let { nama, email, ...info_lain } = {
+  nama: "Sarah",
+  email: "sarah@email.com",
+  umur: 25,
+  kota: "Bandung",
+  pekerjaan: "Designer",
+};
+
+console.log("Nama:", nama);
+console.log("Email:", email);
+console.log("Info lain:", info_lain); // {umur: 25, kota: "Bandung", pekerjaan: "Designer"}
+```
+
+## Default Parameters
+
+Default parameters memungkinkan function memiliki **nilai default** untuk parameter.
+
+```javascript
+// Cara lama
+function sapa_lama(nama, waktu) {
+  waktu = waktu || "hari";
+  return "Selamat " + waktu + ", " + nama + "!";
+}
+
+// Cara modern
+function sapa_modern(nama, waktu = "hari") {
+  return `Selamat ${waktu}, ${nama}!`;
+}
+
+console.log(sapa_modern("Ahmad")); // "Selamat hari, Ahmad!"
+console.log(sapa_modern("Sarah", "pagi")); // "Selamat pagi, Sarah!"
+
+// Default dengan expression
+function buat_user(nama, role = "user", created = new Date()) {
+  return {
+    nama: nama,
+    role: role,
+    created_at: created.toLocaleDateString(),
+    id: Math.random().toString(36).substr(2, 9),
+  };
+}
+
+console.log(buat_user("Ahmad"));
+console.log(buat_user("Sarah", "admin"));
+```
+
+## Let, Const, dan Block Scope
+
+### 1. Let vs Var
+
+```javascript
+// Var - function scope
+function test_var() {
+  if (true) {
+    var x = 1;
+  }
+  console.log(x); // 1 (accessible outside block)
+}
+
+// Let - block scope
+function test_let() {
+  if (true) {
+    let y = 1;
+  }
+  // console.log(y); // Error: y is not defined
+}
+
+// Let tidak bisa redeclare
+// var name = "Ahmad";
+// var name = "Budi"; // OK
+
+// let name = "Ahmad";
+// let name = "Budi"; // Error: Cannot redeclare
+```
+
+### 2. Const
+
+```javascript
+// Const untuk primitive values
+const PI = 3.14159;
+const APP_NAME = "MyApp";
+
+// PI = 3.14; // Error: Cannot reassign
+
+// Const untuk objects (isi bisa berubah)
+const user = {
+  nama: "Ahmad",
+  umur: 25,
+};
+
+user.umur = 26; // OK - mengubah property
+user.kota = "Jakarta"; // OK - menambah property
+
+console.log(user); // {nama: "Ahmad", umur: 26, kota: "Jakarta"}
+
+// user = {}; // Error: Cannot reassign
+
+// Const untuk arrays (isi bisa berubah)
+const hobbies = ["coding", "reading"];
+hobbies.push("gaming"); // OK
+hobbies[0] = "programming"; // OK
+
+console.log(hobbies); // ["programming", "reading", "gaming"]
+
+// hobbies = []; // Error: Cannot reassign
+```
+
+## Enhanced Object Literals
+
+### 1. Property Shorthand
+
+```javascript
+let nama = "Ahmad";
+let umur = 25;
+let kota = "Jakarta";
+
+// Cara lama
+let user_lama = {
+  nama: nama,
+  umur: umur,
+  kota: kota,
+};
+
+// Cara modern (shorthand)
+let user_modern = {
+  nama,
+  umur,
+  kota,
+};
+
+console.log(user_modern); // {nama: "Ahmad", umur: 25, kota: "Jakarta"}
+```
+
+### 2. Method Shorthand
+
+```javascript
+// Cara lama
+let calculator_lama = {
+  tambah: function (a, b) {
+    return a + b;
+  },
+  kurang: function (a, b) {
+    return a - b;
+  },
+};
+
+// Cara modern
+let calculator_modern = {
+  tambah(a, b) {
+    return a + b;
+  },
+  kurang(a, b) {
+    return a - b;
+  },
+  kali: (a, b) => a * b, // Arrow function juga bisa
+};
+
+console.log(calculator_modern.tambah(5, 3)); // 8
+console.log(calculator_modern.kali(4, 6)); // 24
+```
+
+### 3. Computed Property Names
+
+```javascript
+let property_name = "dynamic_key";
+let counter = 1;
+
+let dynamic_object = {
+  [property_name]: "Dynamic Value",
+  [`key_${counter}`]: "Value 1",
+  [`key_${counter + 1}`]: "Value 2",
+};
+
+console.log(dynamic_object);
+// {dynamic_key: "Dynamic Value", key_1: "Value 1", key_2: "Value 2"}
+
+// Contoh praktis: form data
+function create_form_data(fields) {
+  let form_data = {};
+
+  fields.forEach((field) => {
+    form_data[`${field.name}_value`] = field.value;
+    form_data[`${field.name}_valid`] = field.value.length > 0;
+  });
+
+  return form_data;
+}
+
+let fields = [
+  { name: "username", value: "ahmad123" },
+  { name: "email", value: "ahmad@email.com" },
+  { name: "phone", value: "08123456789" },
+];
+
+console.log(create_form_data(fields));
+```
+
+## Classes (ES6)
+
+```javascript
+class Person {
+  constructor(nama, umur) {
+    this.nama = nama;
+    this.umur = umur;
+  }
+
+  // Method
+  perkenalan() {
+    return `Halo, saya ${this.nama}, umur ${this.umur} tahun`;
+  }
+
+  // Getter
+  get info() {
+    return `${this.nama} (${this.umur})`;
+  }
+
+  // Setter
+  set age(umur_baru) {
+    if (umur_baru > 0) {
+      this.umur = umur_baru;
+    }
+  }
+
+  // Static method
+  static create_random() {
+    let names = ["Ahmad", "Budi", "Citra", "Dina"];
+    let random_name = names[Math.floor(Math.random() * names.length)];
+    let random_age = Math.floor(Math.random() * 50) + 18;
+
+    return new Person(random_name, random_age);
+  }
+}
+
+// Inheritance
+class Student extends Person {
+  constructor(nama, umur, nim, jurusan) {
+    super(nama, umur); // Panggil constructor parent
+    this.nim = nim;
+    this.jurusan = jurusan;
+  }
+
+  // Override method
+  perkenalan() {
+    return `${super.perkenalan()}, NIM ${this.nim}, jurusan ${this.jurusan}`;
+  }
+
+  // Method khusus student
+  status_kuliah() {
+    return `Mahasiswa aktif jurusan ${this.jurusan}`;
+  }
+}
+
+// Penggunaan
+let person1 = new Person("Ahmad", 25);
+console.log(person1.perkenalan());
+console.log(person1.info);
+
+let student1 = new Student("Sarah", 20, "20210001", "Informatika");
+console.log(student1.perkenalan());
+console.log(student1.status_kuliah());
+
+let random_person = Person.create_random();
+console.log(random_person.perkenalan());
+```
+
+## Modules (Import/Export)
+
+### 1. Named Exports
+
+```javascript
+// file: math-utils.js
+export const PI = 3.14159;
+
+export function tambah(a, b) {
+  return a + b;
+}
+
+export function kurang(a, b) {
+  return a - b;
+}
+
+export const kalkulator = {
+  kali: (a, b) => a * b,
+  bagi: (a, b) => a / b,
+};
+
+// file: main.js
+import { tambah, kurang, PI, kalkulator } from "./math-utils.js";
+
+console.log(tambah(5, 3)); // 8
+console.log(PI); // 3.14159
+console.log(kalkulator.kali(4, 5)); // 20
+```
+
+### 2. Default Export
+
+```javascript
+// file: user-manager.js
+class UserManager {
+  constructor() {
+    this.users = [];
+  }
+
+  addUser(user) {
+    this.users.push(user);
+  }
+
+  getUsers() {
+    return this.users;
+  }
+}
+
+export default UserManager;
+
+// file: app.js
+import UserManager from "./user-manager.js";
+import { tambah } from "./math-utils.js"; // Mixed import
+
+let manager = new UserManager();
+manager.addUser({ nama: "Ahmad", umur: 25 });
+```
+
+## Contoh Praktis: Todo App Modern
+
+```javascript
+class TodoApp {
+  constructor() {
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+    this.next_id =
+      this.todos.length > 0 ? Math.max(...this.todos.map((t) => t.id)) + 1 : 1;
+  }
+
+  // Tambah todo dengan ES6+ features
+  add_todo(text, priority = "medium") {
+    const new_todo = {
+      id: this.next_id++,
+      text,
+      completed: false,
+      priority,
+      created_at: new Date().toISOString(),
+      due_date: null,
+    };
+
+    this.todos = [...this.todos, new_todo];
+    this.save_to_storage();
+
+    return new_todo;
+  }
+
+  // Toggle status dengan array methods
+  toggle_todo(id) {
+    this.todos = this.todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+
+    this.save_to_storage();
+  }
+
+  // Delete todo
+  delete_todo(id) {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+    this.save_to_storage();
+  }
+
+  // Update todo dengan destructuring
+  update_todo(id, updates) {
+    this.todos = this.todos.map((todo) =>
+      todo.id === id ? { ...todo, ...updates } : todo
+    );
+
+    this.save_to_storage();
+  }
+
+  // Get todos dengan filter
+  get_todos({ completed = null, priority = null } = {}) {
+    return this.todos.filter((todo) => {
+      if (completed !== null && todo.completed !== completed) {
+        return false;
+      }
+      if (priority !== null && todo.priority !== priority) {
+        return false;
+      }
+      return true;
+    });
+  }
+
+  // Get statistics dengan array methods
+  get stats() {
+    const total = this.todos.length;
+    const completed = this.todos.filter((t) => t.completed).length;
+    const pending = total - completed;
+
+    const by_priority = this.todos.reduce((stats, todo) => {
+      stats[todo.priority] = (stats[todo.priority] || 0) + 1;
+      return stats;
+    }, {});
+
+    return {
+      total,
+      completed,
+      pending,
+      completion_rate: total > 0 ? Math.round((completed / total) * 100) : 0,
+      by_priority,
+    };
+  }
+
+  // Export data
+  export_data() {
+    return {
+      todos: this.todos,
+      exported_at: new Date().toISOString(),
+      version: "1.0",
+    };
+  }
+
+  // Import data dengan error handling
+  import_data(data) {
+    try {
+      if (!data || !Array.isArray(data.todos)) {
+        throw new Error("Invalid data format");
+      }
+
+      this.todos = data.todos.map((todo) => ({
+        id: todo.id || this.next_id++,
+        text: todo.text || "Untitled",
+        completed: Boolean(todo.completed),
+        priority: todo.priority || "medium",
+        created_at: todo.created_at || new Date().toISOString(),
+        due_date: todo.due_date || null,
+      }));
+
+      this.save_to_storage();
+      return true;
+    } catch (error) {
+      console.error("Import failed:", error.message);
+      return false;
+    }
+  }
+
+  // Render todos dengan template literals
+  render() {
+    const { total, completed, pending, completion_rate } = this.stats;
+
+    console.log(`
+=== TODO APP ===
+📊 Total: ${total} | ✅ Completed: ${completed} | ⏳ Pending: ${pending} | 📈 ${completion_rate}%
+
+=== TODOS ===`);
+
+    if (this.todos.length === 0) {
+      console.log("📝 No todos yet. Add some!");
+      return;
+    }
+
+    this.todos.forEach(({ id, text, completed, priority }) => {
+      const status = completed ? "✅" : "⏳";
+      const priority_icon = { high: "🔥", medium: "📝", low: "📄" }[priority];
+
+      console.log(`${status} ${priority_icon} [${id}] ${text}`);
+    });
+  }
+
+  // Private method (dengan #)
+  save_to_storage() {
+    localStorage.setItem("todos", JSON.stringify(this.todos));
+  }
+}
+
+// Demo penggunaan
+const app = new TodoApp();
+
+// Tambah todos
+app.add_todo("Belajar ES6+ Features", "high");
+app.add_todo("Membuat project portfolio", "medium");
+app.add_todo("Review kode kemarin", "low");
+
+app.render();
+
+// Toggle status
+app.toggle_todo(1);
+
+// Update todo
+app.update_todo(2, {
+  text: "Membuat project portfolio yang keren",
+  priority: "high",
+  due_date: "2024-12-31",
+});
+
+console.log("\n=== AFTER UPDATES ===");
+app.render();
+
+// Show statistics
+console.log("\n=== STATISTICS ===");
+console.log(app.stats);
+
+// Filter todos
+console.log("\n=== HIGH PRIORITY TODOS ===");
+const high_priority = app.get_todos({ priority: "high" });
+high_priority.forEach((todo) => console.log(`🔥 ${todo.text}`));
+```
+
+## Tips ES6+ Features
+
+**💡 Gunakan const untuk nilai yang tidak berubah:**
+
+```javascript
+// ✅ Good practices
+const API_URL = "https://api.example.com";
+const users = []; // Array bisa diubah isinya
+
+// ❌ Avoid
+let API_URL = "https://api.example.com"; // Tidak perlu let jika tidak berubah
+```
+
+**💡 Prefer arrow functions untuk callbacks pendek:**
+
+```javascript
+// ✅ Arrow functions untuk callbacks
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map((n) => n * 2);
+const evens = numbers.filter((n) => n % 2 === 0);
+
+// ✅ Regular functions untuk methods yang kompleks
+const calculator = {
+  add(a, b) {
+    return a + b;
+  },
+};
+```
+
+**💡 Gunakan destructuring untuk clean code:**
+
+```javascript
+// ❌ Repetitive
+function process_user(user) {
+  console.log(user.name);
+  console.log(user.email);
+  console.log(user.age);
+}
+
+// ✅ Clean with destructuring
+function process_user({ name, email, age }) {
+  console.log(name);
+  console.log(email);
+  console.log(age);
+}
+```
+
+## Ringkasan
+
+**ES6+ Features membuat JavaScript:**
+
+- **Lebih ringkas** dengan arrow functions
+- **Lebih readable** dengan template literals
+- **Lebih powerful** dengan destructuring
+- **Lebih flexible** dengan spread/rest
+- **Lebih modern** dengan classes dan modules
+
+**Fitur yang wajib dikuasai:**
+
+- **Arrow Functions** - syntax pendek untuk functions
+- **Template Literals** - string interpolation mudah
+- **Destructuring** - extract values dengan elegant
+- **Spread/Rest** - manipulasi array/object
+- **Classes** - OOP modern di JavaScript
+
+**Keuntungan ES6+:**
+
+- Kode lebih bersih dan mudah dibaca
+- Mengurangi boilerplate code
+- Error-prone code berkurang
+- Performance yang lebih baik
+
+**🎉 Selamat! Anda telah menguasai JavaScript Modern!**
+
+Dengan pemahaman ES6+ features ini, Anda sudah siap untuk:
+
+- Membuat aplikasi JavaScript modern
+- Bekerja dengan framework seperti React, Vue, Angular
+- Berkontribusi di project open source
+- Melanjutkan ke teknologi web development lainnya
+
+**Keep coding dan terus belajar! 🚀**

@@ -1,0 +1,252 @@
+# Form HTML
+
+Form adalah cara untuk mengumpulkan input dari pengguna. Mari belajar membuat form sederhana!
+
+## Tag Form Dasar
+
+Semua elemen form harus berada di dalam tag `<form>`:
+
+```html
+<form>
+  <!-- Elemen form di sini -->
+</form>
+```
+
+## Input Text
+
+Untuk input text satu baris:
+
+```html
+<label for="nama">Nama:</label> <input type="text" id="nama" name="nama" />
+```
+
+**Penjelasan:**
+
+- `<label>` = label untuk input
+- `for="nama"` = menghubungkan label dengan input
+- `type="text"` = jenis input text
+- `id="nama"` = ID unik untuk input
+- `name="nama"` = nama field untuk pengiriman data
+
+## Input Password
+
+Untuk input password (text tersembunyi):
+
+```html
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" />
+```
+
+## Input Email
+
+Untuk input email dengan validasi otomatis:
+
+```html
+<label for="email">Email:</label> <input type="email" id="email" name="email" />
+```
+
+## Textarea
+
+Untuk input text multi-baris:
+
+```html
+<label for="pesan">Pesan:</label>
+<textarea id="pesan" name="pesan" rows="4" cols="50"></textarea>
+```
+
+## Radio Button
+
+Untuk pilihan tunggal (hanya satu yang bisa dipilih):
+
+```html
+<p>Jenis Kelamin:</p>
+<input type="radio" id="laki" name="gender" value="laki-laki" />
+<label for="laki">Laki-laki</label><br />
+
+<input type="radio" id="perempuan" name="gender" value="perempuan" />
+<label for="perempuan">Perempuan</label>
+```
+
+## Checkbox
+
+Untuk pilihan ganda (bisa pilih lebih dari satu):
+
+```html
+<p>Hobi:</p>
+<input type="checkbox" id="baca" name="hobi" value="membaca" />
+<label for="baca">Membaca</label><br />
+
+<input type="checkbox" id="musik" name="hobi" value="musik" />
+<label for="musik">Mendengar Musik</label><br />
+
+<input type="checkbox" id="olahraga" name="hobi" value="olahraga" />
+<label for="olahraga">Olahraga</label>
+```
+
+## Select (Dropdown)
+
+Untuk pilihan dari daftar dropdown:
+
+```html
+<label for="kota">Kota:</label>
+<select id="kota" name="kota">
+  <option value="">Pilih Kota</option>
+  <option value="jakarta">Jakarta</option>
+  <option value="bandung">Bandung</option>
+  <option value="surabaya">Surabaya</option>
+</select>
+```
+
+## Button Submit
+
+Untuk mengirim form:
+
+```html
+<input type="submit" value="Kirim" />
+```
+
+Atau menggunakan tag button:
+
+```html
+<button type="submit">Kirim</button>
+```
+
+## Contoh Form Lengkap
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Pendaftaran</title>
+  </head>
+  <body>
+    <h1>Form Pendaftaran</h1>
+
+    <form>
+      <h2>Data Pribadi</h2>
+
+      <label for="nama">Nama Lengkap:</label><br />
+      <input type="text" id="nama" name="nama" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="password">Password:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
+
+      <label for="umur">Umur:</label><br />
+      <input
+        type="number"
+        id="umur"
+        name="umur"
+        min="17"
+        max="100"
+      /><br /><br />
+
+      <p>Jenis Kelamin:</p>
+      <input type="radio" id="laki" name="gender" value="laki-laki" />
+      <label for="laki">Laki-laki</label><br />
+      <input type="radio" id="perempuan" name="gender" value="perempuan" />
+      <label for="perempuan">Perempuan</label><br /><br />
+
+      <label for="kota">Kota Asal:</label><br />
+      <select id="kota" name="kota">
+        <option value="">Pilih Kota</option>
+        <option value="jakarta">Jakarta</option>
+        <option value="bandung">Bandung</option>
+        <option value="surabaya">Surabaya</option>
+        <option value="medan">Medan</option></select
+      ><br /><br />
+
+      <p>Hobi (pilih yang sesuai):</p>
+      <input type="checkbox" id="baca" name="hobi" value="membaca" />
+      <label for="baca">Membaca</label><br />
+      <input type="checkbox" id="musik" name="hobi" value="musik" />
+      <label for="musik">Mendengar Musik</label><br />
+      <input type="checkbox" id="olahraga" name="hobi" value="olahraga" />
+      <label for="olahraga">Olahraga</label><br />
+      <input type="checkbox" id="traveling" name="hobi" value="traveling" />
+      <label for="traveling">Traveling</label><br /><br />
+
+      <label for="bio">Ceritakan tentang diri Anda:</label><br />
+      <textarea
+        id="bio"
+        name="bio"
+        rows="4"
+        cols="50"
+        placeholder="Tulis bio Anda di sini..."
+      ></textarea
+      ><br /><br />
+
+      <input type="submit" value="Daftar Sekarang" />
+      <button type="reset">Reset Form</button>
+    </form>
+  </body>
+</html>
+```
+
+## Atribut Penting
+
+### Input Text
+
+- `placeholder` = text petunjuk
+- `required` = field wajib diisi
+- `maxlength` = batas maksimal karakter
+
+```html
+<input type="text" placeholder="Masukkan nama" required maxlength="50" />
+```
+
+### Input Number
+
+- `min` = nilai minimum
+- `max` = nilai maksimum
+
+```html
+<input type="number" min="18" max="65" />
+```
+
+## Jenis Input Lainnya
+
+```html
+<!-- Input tanggal -->
+<input type="date" name="tanggal_lahir" />
+
+<!-- Input file -->
+<input type="file" name="foto" />
+
+<!-- Input tersembunyi -->
+<input type="hidden" name="user_id" value="123" />
+
+<!-- Input URL -->
+<input type="url" name="website" />
+
+<!-- Input telepon -->
+<input type="tel" name="telepon" />
+```
+
+## Tips Form
+
+1. **Selalu gunakan `<label>`** untuk aksesibilitas
+2. **Gunakan `required`** untuk field wajib
+3. **Gunakan `placeholder`** untuk memberikan contoh
+4. **Kelompokkan field** yang berhubungan
+5. **Test form** di berbagai device
+
+## Latihan
+
+Buat form untuk:
+
+1. **Form kontak** dengan nama, email, subjek, dan pesan
+2. **Form survey** dengan rating menggunakan radio button
+3. **Form order makanan** dengan checkbox untuk topping
+4. **Form CV** lengkap dengan semua jenis input
+
+**Bonus:** Tambahkan validasi dengan atribut `required`, `min`, `max`, dll!
+
+Selamat mencoba!

@@ -1,0 +1,337 @@
+# HTML Semantic
+
+HTML Semantic adalah penggunaan tag HTML yang memiliki makna dan tujuan yang jelas. Mari belajar cara membuat HTML yang lebih bermakna!
+
+## Mengapa HTML Semantic Penting?
+
+1. **SEO Lebih Baik** - Search engine lebih mudah memahami konten
+2. **Aksesibilitas** - Screen reader bisa membantu pengguna disabilitas
+3. **Kode Lebih Jelas** - Developer lain mudah memahami struktur
+4. **Maintenance Mudah** - Lebih mudah dimodifikasi dan diperbaiki
+
+## Tag Semantic Utama
+
+### Header
+
+Untuk bagian atas halaman atau section:
+
+```html
+<header>
+  <h1>Website Saya</h1>
+  <nav>
+    <a href="/">Beranda</a>
+    <a href="/tentang">Tentang</a>
+    <a href="/kontak">Kontak</a>
+  </nav>
+</header>
+```
+
+### Nav
+
+Untuk navigasi/menu:
+
+```html
+<nav>
+  <ul>
+    <li><a href="/">Beranda</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/portofolio">Portofolio</a></li>
+  </ul>
+</nav>
+```
+
+### Main
+
+Untuk konten utama halaman (hanya satu per halaman):
+
+```html
+<main>
+  <h1>Judul Halaman</h1>
+  <p>Konten utama halaman di sini...</p>
+</main>
+```
+
+### Article
+
+Untuk konten mandiri yang bisa berdiri sendiri:
+
+```html
+<article>
+  <h2>Judul Artikel</h2>
+  <p>Publikasi: 1 Juni 2025</p>
+  <p>Isi artikel yang lengkap...</p>
+</article>
+```
+
+### Section
+
+Untuk bagian/seksi dalam halaman:
+
+```html
+<section>
+  <h2>Tentang Kami</h2>
+  <p>Informasi tentang perusahaan...</p>
+</section>
+
+<section>
+  <h2>Layanan</h2>
+  <p>Daftar layanan yang kami tawarkan...</p>
+</section>
+```
+
+### Aside
+
+Untuk konten sampingan (sidebar):
+
+```html
+<aside>
+  <h3>Widget Sidebar</h3>
+  <ul>
+    <li>Artikel Terbaru</li>
+    <li>Kategori</li>
+    <li>Archive</li>
+  </ul>
+</aside>
+```
+
+### Footer
+
+Untuk bagian bawah halaman:
+
+```html
+<footer>
+  <p>&copy; 2025 Website Saya. All rights reserved.</p>
+  <p>Kontak: email@example.com</p>
+</footer>
+```
+
+## Contoh Struktur Lengkap
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Pribadi - Belajar Programming</title>
+  </head>
+  <body>
+    <!-- Header dengan navigasi -->
+    <header>
+      <h1>Blog Programming</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/artikel">Artikel</a></li>
+          <li><a href="/tutorial">Tutorial</a></li>
+          <li><a href="/tentang">Tentang</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Konten utama -->
+    <main>
+      <!-- Artikel blog -->
+      <article>
+        <header>
+          <h2>Cara Belajar HTML untuk Pemula</h2>
+          <p>Publikasi: <time datetime="2025-06-01">1 Juni 2025</time></p>
+          <p>Oleh: <strong>Budi Programmer</strong></p>
+        </header>
+
+        <section>
+          <h3>Pengenalan</h3>
+          <p>HTML adalah bahasa markup untuk membuat halaman web...</p>
+        </section>
+
+        <section>
+          <h3>Langkah-langkah Belajar</h3>
+          <ol>
+            <li>Pahami dasar-dasar HTML</li>
+            <li>Praktik membuat halaman sederhana</li>
+            <li>Pelajari tag semantic</li>
+          </ol>
+        </section>
+
+        <footer>
+          <p>
+            Tag: <a href="/tag/html">HTML</a>,
+            <a href="/tag/web">Web Development</a>
+          </p>
+        </footer>
+      </article>
+
+      <!-- Artikel lainnya -->
+      <article>
+        <header>
+          <h2>Tips Menulis CSS yang Rapi</h2>
+          <p>Publikasi: <time datetime="2025-05-28">28 Mei 2025</time></p>
+        </header>
+        <p>CSS adalah bahasa untuk styling halaman web...</p>
+      </article>
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+      <section>
+        <h3>Artikel Populer</h3>
+        <ul>
+          <li><a href="/artikel/belajar-html">Belajar HTML</a></li>
+          <li><a href="/artikel/css-flexbox">CSS Flexbox</a></li>
+          <li><a href="/artikel/javascript-dasar">JavaScript Dasar</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Kategori</h3>
+        <ul>
+          <li><a href="/kategori/html">HTML</a></li>
+          <li><a href="/kategori/css">CSS</a></li>
+          <li><a href="/kategori/javascript">JavaScript</a></li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+      <section>
+        <h3>Tentang Blog</h3>
+        <p>Blog ini berisi tutorial programming untuk pemula.</p>
+      </section>
+
+      <section>
+        <h3>Kontak</h3>
+        <address>
+          Email:
+          <a href="mailto:admin@blogprogramming.com"
+            >admin@blogprogramming.com</a
+          ><br />
+          Telepon: <a href="tel:+6281234567890">0812-3456-7890</a>
+        </address>
+      </section>
+
+      <p>&copy; 2025 Blog Programming. Semua hak dilindungi.</p>
+    </footer>
+  </body>
+</html>
+```
+
+## Tag Semantic Lainnya
+
+### Time
+
+Untuk menandai waktu/tanggal:
+
+```html
+<p>
+  Artikel ini dipublikasikan pada <time datetime="2025-06-01">1 Juni 2025</time>
+</p>
+```
+
+### Address
+
+Untuk informasi kontak:
+
+```html
+<address>
+  <p>Hubungi kami:</p>
+  <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+  <p>Telepon: <a href="tel:+6281234567890">0812-3456-7890</a></p>
+</address>
+```
+
+### Mark
+
+Untuk menandai/highlight text:
+
+```html
+<p>Kata <mark>penting</mark> dalam kalimat ini.</p>
+```
+
+### Details dan Summary
+
+Untuk konten yang bisa dibuka/tutup:
+
+```html
+<details>
+  <summary>Klik untuk lihat detail</summary>
+  <p>Ini adalah konten detail yang tersembunyi.</p>
+</details>
+```
+
+### Figure dan Figcaption
+
+Untuk gambar dengan caption:
+
+```html
+<figure>
+  <img src="grafik.jpg" alt="Grafik penjualan 2025" />
+  <figcaption>Grafik penjualan produk tahun 2025</figcaption>
+</figure>
+```
+
+## Perbandingan: Non-Semantic vs Semantic
+
+### ❌ Non-Semantic (Tidak Direkomendasikan)
+
+```html
+<div class="header">
+  <div class="nav">Menu</div>
+</div>
+<div class="content">
+  <div class="post">Artikel</div>
+</div>
+<div class="sidebar">Widget</div>
+<div class="footer">Footer</div>
+```
+
+### ✅ Semantic (Direkomendasikan)
+
+```html
+<header>
+  <nav>Menu</nav>
+</header>
+<main>
+  <article>Artikel</article>
+</main>
+<aside>Widget</aside>
+<footer>Footer</footer>
+```
+
+## Tips HTML Semantic
+
+1. **Gunakan tag yang tepat** untuk tujuannya
+2. **Satu `<main>` per halaman**
+3. **`<article>` untuk konten mandiri**
+4. **`<section>` untuk bagian dalam konten**
+5. **`<aside>` untuk konten sampingan**
+6. **Tambahkan `lang` di tag `<html>`**
+
+## Atribut Semantic
+
+```html
+<!-- Bahasa halaman -->
+<html lang="id">
+  <!-- Role untuk aksesibilitas -->
+  <nav role="navigation">
+    <main role="main">
+      <!-- ARIA labels -->
+      <button aria-label="Tutup dialog">×</button>
+    </main>
+  </nav>
+</html>
+```
+
+## Latihan
+
+Buat halaman website dengan struktur semantic yang lengkap:
+
+1. **Header** dengan logo dan navigasi
+2. **Main** dengan beberapa artikel
+3. **Aside** dengan widget sidebar
+4. **Footer** dengan informasi kontak
+5. Gunakan tag `<time>`, `<address>`, dan `<figure>`
+
+**Bonus:** Bandingkan kode Anda dengan versi non-semantic dan rasakan perbedaannya!
+
+Dengan HTML semantic, website Anda akan lebih professional dan mudah dipahami oleh mesin pencari maupun developer lain.

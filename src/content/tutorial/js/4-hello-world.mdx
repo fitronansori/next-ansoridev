@@ -1,0 +1,249 @@
+# JavaScript Pertama: Hello World
+
+Mari kita tulis JavaScript pertama! Sangat mudah dan menyenangkan.
+
+## Membuat File HTML dengan JavaScript
+
+### Langkah 1: Buat File HTML
+
+Buat file `hello.html` dan ketik kode ini:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Pertama</title>
+  </head>
+  <body>
+    <h1>Belajar JavaScript</h1>
+    <p>Ini adalah halaman untuk belajar JavaScript</p>
+
+    <script>
+      // JavaScript pertama saya
+      alert("Hello World!");
+      console.log("Halo dari console!");
+    </script>
+  </body>
+</html>
+```
+
+### Langkah 2: Buka di Browser
+
+1. **Save file** sebagai `hello.html`
+2. **Double-click** file tersebut
+3. **Akan muncul popup** dengan tulisan "Hello World!"
+4. **Klik OK** untuk menutup popup
+
+### Langkah 3: Cek Console
+
+1. **Tekan F12** untuk buka Developer Tools
+2. **Klik tab Console**
+3. **Lihat pesan** "Halo dari console!"
+
+## Penjelasan Kode
+
+### Tag Script
+
+```html
+<script>
+  // JavaScript ditulis di sini
+</script>
+```
+
+- Tag `<script>` memberitahu browser ini adalah JavaScript
+- Kode JavaScript ditulis di antara tag pembuka dan penutup
+
+### Alert Function
+
+```javascript
+alert("Hello World!");
+```
+
+- `alert()` menampilkan popup message
+- Text di dalam tanda kutip akan ditampilkan
+- User harus klik OK untuk melanjutkan
+
+### Console.log Function
+
+```javascript
+console.log("Halo dari console!");
+```
+
+- `console.log()` menampilkan pesan di console browser
+- Sangat berguna untuk debugging
+- User biasa tidak melihat console
+
+### Comment JavaScript
+
+```javascript
+// Ini adalah comment satu baris
+/* Ini adalah comment
+   multi baris */
+```
+
+- Comment tidak dijalankan oleh browser
+- Digunakan untuk catatan atau penjelasan kode
+
+## Variasi Hello World
+
+### Versi 1: Alert Sederhana
+
+```javascript
+alert("Selamat datang di website saya!");
+```
+
+### Versi 2: Console dengan Info
+
+```javascript
+console.log("Website berhasil dimuat!");
+console.log("Tanggal hari ini:", new Date());
+```
+
+### Versi 3: Gabungan Alert dan Console
+
+```javascript
+alert("Hello World!");
+console.log("Alert sudah ditampilkan");
+console.log("JavaScript berhasil berjalan!");
+```
+
+### Versi 4: Multiple Messages
+
+```javascript
+alert("Pesan pertama");
+alert("Pesan kedua");
+alert("Pesan ketiga");
+console.log("Semua alert selesai!");
+```
+
+## Latihan Interaktif
+
+### Latihan 1: Personal Greeting
+
+Buat file `greeting.html`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Greeting</title>
+  </head>
+  <body>
+    <h1>Selamat Datang!</h1>
+
+    <script>
+      alert("Halo! Nama saya [NAMA_ANDA]");
+      console.log("Saya sedang belajar JavaScript");
+      console.log("Ini adalah project pertama saya");
+    </script>
+  </body>
+</html>
+```
+
+**Tugas:** Ganti `[NAMA_ANDA]` dengan nama Anda sendiri.
+
+### Latihan 2: Multiple Alerts
+
+```javascript
+alert("JavaScript itu mudah!");
+alert("Saya bisa melakukannya!");
+alert("Mari terus belajar!");
+console.log("Motivasi selesai!");
+```
+
+### Latihan 3: Info Website
+
+```javascript
+console.log("=== INFO WEBSITE ===");
+console.log("Nama website: Belajar JavaScript");
+console.log("Pembuat: [NAMA_ANDA]");
+console.log("Tanggal dibuat: " + new Date());
+console.log("==================");
+```
+
+## Debugging JavaScript
+
+### Jika Alert Tidak Muncul:
+
+1. **Cek spelling** - `alert` bukan `Alert`
+2. **Cek tanda kutip** - harus ada penutup `"`
+3. **Cek titik koma** - sebaiknya ada `;` di akhir
+4. **Cek tag script** - harus ada `<script>` dan `</script>`
+
+### Jika Console Tidak Ada Output:
+
+1. **Buka Developer Tools** dengan F12
+2. **Refresh halaman** (F5) setelah buka console
+3. **Cek tab Console** bukan tab lain
+4. **Cek spelling** - `console.log` bukan `Console.log`
+
+## Tips Menulis JavaScript
+
+### Gunakan Semicolon
+
+```javascript
+alert("Hello!"); // Baik
+console.log("Test"); // Baik
+```
+
+### Case Sensitive
+
+```javascript
+alert("OK"); // ✅ Benar
+Alert("ERROR"); // ❌ Salah - huruf besar A
+```
+
+### Tanda Kutip Konsisten
+
+```javascript
+alert("Hello");      // ✅ Benar
+alert('Hello');      // ✅ Benar juga
+alert("Hello');      // ❌ Salah - tidak matching
+```
+
+## Error Umum Pemula
+
+### 1. Lupa Tanda Kutip Penutup
+
+```javascript
+alert("Hello World!);  // ❌ Salah
+alert("Hello World!"); // ✅ Benar
+```
+
+### 2. Lupa Tag Script
+
+```html
+alert("Hello");
+<!-- ❌ Salah -->
+<script>
+  alert("Hello"); <!-- ✅ Benar -->
+</script>
+```
+
+### 3. Salah Penempatan Script
+
+```html
+<!-- ❌ Salah - di luar body -->
+</body>
+<script>alert("Hello");</script>
+</html>
+
+<!-- ✅ Benar - di dalam body -->
+<body>
+<script>alert("Hello");</script>
+</body>
+```
+
+## Selamat!
+
+Anda telah berhasil membuat JavaScript pertama! 🎉
+
+**Yang telah Anda pelajari:**
+
+- ✅ Cara menulis JavaScript di HTML
+- ✅ Menggunakan alert() untuk popup
+- ✅ Menggunakan console.log() untuk debugging
+- ✅ Menulis comment di JavaScript
+- ✅ Debugging error sederhana
+
+**Next step:** Mari lanjut belajar tentang variabel JavaScript!

@@ -1,0 +1,324 @@
+# Function JavaScript: Mengorganisir Kode
+
+Function adalah **sekumpulan kode** yang dibungkus dalam satu nama. Bayangkan seperti resep masakan - sekali tulis, bisa dipakai berkali-kali!
+
+## Mengapa Pakai Function?
+
+Function membantu kita:
+
+- **Menghindari pengulangan kode**
+- **Mengorganisir program** agar rapi
+- **Mempermudah perbaikan** bug
+- **Membuat kode** yang bisa dipakai ulang
+
+## Cara Membuat Function
+
+### 1. Function Sederhana
+
+```javascript
+function sapa_tamu() {
+  console.log("Selamat datang!");
+  console.log("Semoga hari Anda menyenangkan!");
+}
+
+// Cara pakai function
+sapa_tamu(); // Panggil function
+```
+
+### 2. Function dengan Parameter
+
+```javascript
+function sapa_dengan_nama(nama_tamu) {
+  console.log("Halo " + nama_tamu + "!");
+  console.log("Selamat datang di website saya!");
+}
+
+// Cara pakai
+sapa_dengan_nama("Budi"); // Hasil: Halo Budi!
+sapa_dengan_nama("Sarah"); // Hasil: Halo Sarah!
+sapa_dengan_nama("Ahmad"); // Hasil: Halo Ahmad!
+```
+
+### 3. Function dengan Return (Mengembalikan Nilai)
+
+```javascript
+function hitung_luas_persegi(sisi) {
+  let luas_hasil = sisi * sisi;
+  return luas_hasil;
+}
+
+// Cara pakai
+let luas_kamar = hitung_luas_persegi(5);
+console.log("Luas kamar: " + luas_kamar + " meter persegi");
+
+let luas_ruang_tamu = hitung_luas_persegi(8);
+console.log("Luas ruang tamu: " + luas_ruang_tamu + " meter persegi");
+```
+
+## Contoh Function Praktis
+
+### 1. Kalkulator Sederhana
+
+```javascript
+function tambah(angka_1, angka_2) {
+  return angka_1 + angka_2;
+}
+
+function kurang(angka_1, angka_2) {
+  return angka_1 - angka_2;
+}
+
+function kali(angka_1, angka_2) {
+  return angka_1 * angka_2;
+}
+
+function bagi(angka_1, angka_2) {
+  return angka_1 / angka_2;
+}
+
+// Cara pakai
+console.log("5 + 3 = " + tambah(5, 3));
+console.log("10 - 4 = " + kurang(10, 4));
+console.log("6 × 7 = " + kali(6, 7));
+console.log("15 ÷ 3 = " + bagi(15, 3));
+```
+
+### 2. Function untuk Konversi
+
+```javascript
+function celsius_ke_fahrenheit(celsius) {
+  let fahrenheit = (celsius * 9) / 5 + 32;
+  return fahrenheit;
+}
+
+function meter_ke_kilometer(meter) {
+  let kilometer = meter / 1000;
+  return kilometer;
+}
+
+function rupiah_ke_dollar(rupiah) {
+  let dollar = rupiah / 15000; // Asumsi 1 USD = 15.000 IDR
+  return dollar;
+}
+
+// Cara pakai
+console.log("25°C = " + celsius_ke_fahrenheit(25) + "°F");
+console.log("5000 meter = " + meter_ke_kilometer(5000) + " km");
+console.log("Rp 150.000 = $" + rupiah_ke_dollar(150000));
+```
+
+### 3. Function untuk Validasi
+
+```javascript
+function cek_umur_dewasa(umur) {
+  if (umur >= 17) {
+    return "Sudah dewasa";
+  } else {
+    return "Belum dewasa";
+  }
+}
+
+function cek_nilai_lulus(nilai) {
+  if (nilai >= 75) {
+    return "LULUS";
+  } else {
+    return "TIDAK LULUS";
+  }
+}
+
+function cek_password_kuat(password) {
+  if (password.length >= 8) {
+    return "Password cukup kuat";
+  } else {
+    return "Password terlalu pendek";
+  }
+}
+
+// Cara pakai
+console.log("Umur 20: " + cek_umur_dewasa(20));
+console.log("Umur 15: " + cek_umur_dewasa(15));
+console.log("Nilai 85: " + cek_nilai_lulus(85));
+console.log("Nilai 60: " + cek_nilai_lulus(60));
+```
+
+## Function dengan Multiple Parameter
+
+```javascript
+function hitung_gaji_bersih(gaji_pokok, tunjangan, potongan) {
+  let total_gaji = gaji_pokok + tunjangan;
+  let gaji_bersih = total_gaji - potongan;
+  return gaji_bersih;
+}
+
+function info_lengkap_siswa(nama, kelas, nilai_rata_rata) {
+  let status = "";
+  if (nilai_rata_rata >= 75) {
+    status = "LULUS";
+  } else {
+    status = "TIDAK LULUS";
+  }
+
+  console.log("=== INFO SISWA ===");
+  console.log("Nama: " + nama);
+  console.log("Kelas: " + kelas);
+  console.log("Rata-rata: " + nilai_rata_rata);
+  console.log("Status: " + status);
+}
+
+// Cara pakai
+let gaji_net = hitung_gaji_bersih(5000000, 1000000, 500000);
+console.log("Gaji bersih: Rp " + gaji_net);
+
+info_lengkap_siswa("Budi Santoso", "12 IPA 1", 85.5);
+info_lengkap_siswa("Sari Indah", "12 IPS 2", 72.0);
+```
+
+## Arrow Function (Modern)
+
+```javascript
+// Cara tradisional
+function kuadrat_tradisional(angka) {
+  return angka * angka;
+}
+
+// Cara modern (Arrow Function)
+const kuadrat_modern = (angka) => {
+  return angka * angka;
+};
+
+// Arrow function pendek
+const kuadrat_pendek = (angka) => angka * angka;
+
+// Cara pakai sama
+console.log(kuadrat_tradisional(5)); // 25
+console.log(kuadrat_modern(5)); // 25
+console.log(kuadrat_pendek(5)); // 25
+```
+
+## Latihan Praktek
+
+**Buat function untuk:**
+
+### 1. Kalkulator BMI
+
+```javascript
+function hitung_bmi(berat_kg, tinggi_meter) {
+  let bmi = berat_kg / (tinggi_meter * tinggi_meter);
+  return bmi;
+}
+
+function status_bmi(bmi) {
+  if (bmi < 18.5) {
+    return "Kurus";
+  } else if (bmi < 25) {
+    return "Normal";
+  } else if (bmi < 30) {
+    return "Gemuk";
+  } else {
+    return "Obesitas";
+  }
+}
+
+// Test
+let bmi_saya = hitung_bmi(65, 1.7);
+console.log("BMI: " + bmi_saya.toFixed(1));
+console.log("Status: " + status_bmi(bmi_saya));
+```
+
+### 2. Diskon Belanja
+
+```javascript
+function hitung_diskon(total_belanja) {
+  let diskon = 0;
+
+  if (total_belanja >= 500000) {
+    diskon = total_belanja * 0.2; // Diskon 20%
+  } else if (total_belanja >= 200000) {
+    diskon = total_belanja * 0.1; // Diskon 10%
+  } else if (total_belanja >= 100000) {
+    diskon = total_belanja * 0.05; // Diskon 5%
+  }
+
+  return diskon;
+}
+
+function total_bayar(total_belanja) {
+  let diskon = hitung_diskon(total_belanja);
+  let bayar = total_belanja - diskon;
+
+  console.log("Total belanja: Rp " + total_belanja);
+  console.log("Diskon: Rp " + diskon);
+  console.log("Total bayar: Rp " + bayar);
+
+  return bayar;
+}
+
+// Test
+total_bayar(150000); // Diskon 5%
+total_bayar(300000); // Diskon 10%
+total_bayar(600000); // Diskon 20%
+```
+
+## Tips Function
+
+**💡 Nama function yang jelas:**
+
+```javascript
+// ❌ Kurang jelas
+function calc(x, y) {
+  return x + y;
+}
+
+// ✅ Lebih jelas
+function hitung_total_harga(harga, jumlah) {
+  return harga * jumlah;
+}
+```
+
+**💡 Satu function, satu tugas:**
+
+```javascript
+// ❌ Function yang terlalu banyak tugas
+function proses_data_siswa(nama, nilai) {
+  console.log("Nama: " + nama);
+  console.log("Nilai: " + nilai);
+  if (nilai >= 75) {
+    console.log("LULUS");
+    console.log("Selamat!");
+  }
+}
+
+// ✅ Dipecah jadi beberapa function
+function tampilkan_info_siswa(nama, nilai) {
+  console.log("Nama: " + nama);
+  console.log("Nilai: " + nilai);
+}
+
+function cek_kelulusan(nilai) {
+  return nilai >= 75 ? "LULUS" : "TIDAK LULUS";
+}
+
+function tampilkan_ucapan(status) {
+  if (status === "LULUS") {
+    console.log("Selamat!");
+  }
+}
+```
+
+## Ringkasan
+
+**Function adalah:**
+
+- Kumpulan kode yang diberi nama
+- Bisa menerima input (parameter)
+- Bisa mengembalikan output (return)
+- Membantu mengorganisir kode
+
+**Keuntungan:**
+
+- Kode tidak berulang
+- Mudah diperbaiki
+- Bisa dipakai berkali-kali
+- Program lebih terstruktur
+
+**Lanjut ke Conditional Statement untuk membuat program yang lebih pintar! 🧠**

@@ -1,0 +1,230 @@
+# List dan Tabel
+
+Mari belajar cara membuat daftar (list) dan tabel di HTML. Kedua elemen ini sangat berguna untuk mengorganisir informasi!
+
+## List Tidak Berurut (Unordered List)
+
+Untuk membuat daftar dengan bullet points:
+
+```html
+<ul>
+  <li>Apel</li>
+  <li>Jeruk</li>
+  <li>Mangga</li>
+</ul>
+```
+
+**Hasilnya:**
+
+- Apel
+- Jeruk
+- Mangga
+
+## List Berurut (Ordered List)
+
+Untuk membuat daftar dengan nomor:
+
+```html
+<ol>
+  <li>Bangun tidur</li>
+  <li>Mandi</li>
+  <li>Sarapan</li>
+  <li>Berangkat kerja</li>
+</ol>
+```
+
+**Hasilnya:**
+
+1. Bangun tidur
+2. Mandi
+3. Sarapan
+4. Berangkat kerja
+
+## List Bertingkat (Nested List)
+
+List di dalam list:
+
+```html
+<ul>
+  <li>
+    Buah-buahan
+    <ul>
+      <li>Apel</li>
+      <li>Jeruk</li>
+    </ul>
+  </li>
+  <li>
+    Sayuran
+    <ul>
+      <li>Bayam</li>
+      <li>Kangkung</li>
+    </ul>
+  </li>
+</ul>
+```
+
+## Tabel Dasar
+
+Untuk membuat tabel data:
+
+```html
+<table>
+  <tr>
+    <th>Nama</th>
+    <th>Umur</th>
+    <th>Kota</th>
+  </tr>
+  <tr>
+    <td>Budi</td>
+    <td>25</td>
+    <td>Jakarta</td>
+  </tr>
+  <tr>
+    <td>Sari</td>
+    <td>23</td>
+    <td>Bandung</td>
+  </tr>
+</table>
+```
+
+**Penjelasan Tag Tabel:**
+
+- `<table>` = tag pembuka tabel
+- `<tr>` = table row (baris)
+- `<th>` = table header (judul kolom)
+- `<td>` = table data (data/isi)
+
+## Tabel dengan Border
+
+Untuk membuat garis tabel:
+
+```html
+<table border="1">
+  <tr>
+    <th>Produk</th>
+    <th>Harga</th>
+  </tr>
+  <tr>
+    <td>Laptop</td>
+    <td>Rp 5.000.000</td>
+  </tr>
+  <tr>
+    <td>Mouse</td>
+    <td>Rp 100.000</td>
+  </tr>
+</table>
+```
+
+## Contoh Lengkap
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List dan Tabel</title>
+  </head>
+  <body>
+    <h1>Toko Online Saya</h1>
+
+    <h2>Kategori Produk</h2>
+    <ul>
+      <li>
+        Elektronik
+        <ul>
+          <li>Laptop</li>
+          <li>Smartphone</li>
+          <li>Tablet</li>
+        </ul>
+      </li>
+      <li>
+        Fashion
+        <ul>
+          <li>Baju</li>
+          <li>Celana</li>
+          <li>Sepatu</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Produk Terlaris</h2>
+    <ol>
+      <li>iPhone 15</li>
+      <li>MacBook Air</li>
+      <li>AirPods Pro</li>
+      <li>iPad</li>
+      <li>Apple Watch</li>
+    </ol>
+
+    <h2>Daftar Harga</h2>
+    <table border="1">
+      <tr>
+        <th>Produk</th>
+        <th>Harga</th>
+        <th>Stok</th>
+      </tr>
+      <tr>
+        <td>iPhone 15</td>
+        <td>Rp 15.000.000</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>MacBook Air</td>
+        <td>Rp 18.000.000</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>AirPods Pro</td>
+        <td>Rp 3.500.000</td>
+        <td>20</td>
+      </tr>
+    </table>
+  </body>
+</html>
+```
+
+## Tips List
+
+1. **Gunakan `<ul>`** untuk daftar yang tidak perlu urutan
+2. **Gunakan `<ol>`** untuk langkah-langkah atau ranking
+3. **List bertingkat** bagus untuk kategori dan sub-kategori
+4. **Setiap item** harus dalam tag `<li>`
+
+## Tips Tabel
+
+1. **Selalu gunakan `<th>`** untuk header/judul kolom
+2. **Gunakan `border="1"`** untuk melihat garis tabel
+3. **Pastikan jumlah `<td>`** sama di setiap baris
+4. **Tabel bagus** untuk data terstruktur seperti harga, jadwal, dll
+
+## Atribut Tabel Lainnya
+
+```html
+<!-- Tabel dengan caption -->
+<table border="1">
+  <caption>
+    Daftar Siswa Kelas 12A
+  </caption>
+  <tr>
+    <th>No</th>
+    <th>Nama</th>
+    <th>Nilai</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Ahmad</td>
+    <td>85</td>
+  </tr>
+</table>
+```
+
+## Latihan
+
+Buat halaman dengan:
+
+1. **List makanan favorit** (unordered list)
+2. **Jadwal harian** (ordered list)
+3. **Menu restoran** dengan kategori (nested list)
+4. **Tabel daftar teman** dengan kolom: Nama, Umur, Hobby
+5. **Tabel jadwal pelajaran** (bonus: gunakan caption)
+
+Selamat mencoba!

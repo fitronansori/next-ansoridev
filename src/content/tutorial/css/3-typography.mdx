@@ -1,0 +1,625 @@
+# CSS Typography
+
+Typography adalah **seni mengatur text** agar mudah dibaca, menarik, dan sesuai dengan brand website. Typography yang baik dapat meningkatkan user experience secara signifikan.
+
+## Font Family
+
+### Font Generik
+
+CSS menyediakan beberapa jenis font generik:
+
+```css
+.serif {
+  font-family: serif; /* Font dengan kait (Times, Georgia) */
+}
+
+.sans-serif {
+  font-family: sans-serif; /* Font tanpa kait (Arial, Helvetica) */
+}
+
+.monospace {
+  font-family: monospace; /* Font dengan lebar sama (Courier) */
+}
+
+.cursive {
+  font-family: cursive; /* Font seperti tulisan tangan */
+}
+
+.fantasy {
+  font-family: fantasy; /* Font dekoratif */
+}
+```
+
+### Font Spesifik
+
+```css
+.heading {
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+.body-text {
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.code {
+  font-family: "Courier New", "Monaco", monospace;
+}
+```
+
+### Google Fonts
+
+Menggunakan font dari Google Fonts:
+
+```html
+<!-- Di dalam <head> -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+```css
+.modern-text {
+  font-family: "Roboto", sans-serif;
+}
+```
+
+## Font Size
+
+### Satuan untuk Font Size
+
+```css
+/* Absolute Units */
+.pixels {
+  font-size: 16px; /* Pixel - paling umum */
+}
+
+.points {
+  font-size: 12pt; /* Point - untuk print */
+}
+
+/* Relative Units */
+.em {
+  font-size: 1.2em; /* Relatif terhadap parent */
+}
+
+.rem {
+  font-size: 1.5rem; /* Relatif terhadap root element */
+}
+
+.percent {
+  font-size: 120%; /* Persentase dari parent */
+}
+```
+
+### Hierarchy Text
+
+```css
+.title {
+  font-size: 2.5rem; /* 40px jika root = 16px */
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.8rem; /* 28.8px */
+  font-weight: 600;
+}
+
+.heading {
+  font-size: 1.4rem; /* 22.4px */
+  font-weight: 500;
+}
+
+.body-text {
+  font-size: 1rem; /* 16px - base size */
+  font-weight: 400;
+}
+
+.small-text {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+}
+```
+
+## Font Weight
+
+```css
+.light {
+  font-weight: 300; /* Tipis */
+}
+
+.normal {
+  font-weight: 400; /* Normal */
+  font-weight: normal; /* Sama dengan 400 */
+}
+
+.medium {
+  font-weight: 500; /* Medium */
+}
+
+.semibold {
+  font-weight: 600; /* Semi Bold */
+}
+
+.bold {
+  font-weight: 700; /* Bold */
+  font-weight: bold; /* Sama dengan 700 */
+}
+
+.extra-bold {
+  font-weight: 800; /* Extra Bold */
+}
+```
+
+## Text Styling
+
+### Text Decoration
+
+```css
+.underline {
+  text-decoration: underline; /* Garis bawah */
+}
+
+.overline {
+  text-decoration: overline; /* Garis atas */
+}
+
+.line-through {
+  text-decoration: line-through; /* Garis tengah */
+}
+
+.no-decoration {
+  text-decoration: none; /* Hilangkan dekorasi */
+}
+```
+
+### Text Transform
+
+```css
+.uppercase {
+  text-transform: uppercase; /* HURUF BESAR */
+}
+
+.lowercase {
+  text-transform: lowercase; /* huruf kecil */
+}
+
+.capitalize {
+  text-transform: capitalize; /* Huruf Pertama Besar */
+}
+
+.normal-case {
+  text-transform: none; /* Normal */
+}
+```
+
+### Font Style
+
+```css
+.italic {
+  font-style: italic; /* Miring */
+}
+
+.oblique {
+  font-style: oblique; /* Miring alternatif */
+}
+
+.normal-style {
+  font-style: normal; /* Normal */
+}
+```
+
+## Text Alignment
+
+```css
+.left-align {
+  text-align: left; /* Kiri (default) */
+}
+
+.center-align {
+  text-align: center; /* Tengah */
+}
+
+.right-align {
+  text-align: right; /* Kanan */
+}
+
+.justify {
+  text-align: justify; /* Rata kiri-kanan */
+}
+```
+
+## Line Height (Spacing Baris)
+
+```css
+.tight-spacing {
+  line-height: 1.2; /* Rapat */
+}
+
+.normal-spacing {
+  line-height: 1.5; /* Normal - recommended */
+}
+
+.loose-spacing {
+  line-height: 1.8; /* Longgar */
+}
+
+.pixel-spacing {
+  line-height: 24px; /* Dalam pixel */
+}
+```
+
+## Letter dan Word Spacing
+
+```css
+.spaced-letters {
+  letter-spacing: 2px; /* Jarak antar huruf */
+}
+
+.condensed-letters {
+  letter-spacing: -1px; /* Huruf lebih rapat */
+}
+
+.spaced-words {
+  word-spacing: 5px; /* Jarak antar kata */
+}
+```
+
+## Text Indent dan Whitespace
+
+```css
+.indented-paragraph {
+  text-indent: 30px; /* Indentasi paragraf */
+}
+
+.no-wrap {
+  white-space: nowrap; /* Text tidak wrap */
+}
+
+.pre-format {
+  white-space: pre; /* Pertahankan formatting */
+}
+```
+
+## Contoh Typography System
+
+```css
+/* Typography Variables */
+:root {
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: "Georgia", serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #374151;
+}
+
+/* Headings */
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+  line-height: var(--leading-relaxed);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: #6b7280;
+  line-height: var(--leading-relaxed);
+}
+
+/* Small Text */
+.small {
+  font-size: var(--text-sm);
+  color: #9ca3af;
+}
+
+/* Code */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background-color: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #e11d48;
+}
+
+/* Links */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+```
+
+## Responsive Typography
+
+```css
+/* Mobile First Approach */
+.responsive-heading {
+  font-size: 1.5rem; /* Mobile */
+}
+
+@media (min-width: 768px) {
+  .responsive-heading {
+    font-size: 2rem; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-heading {
+    font-size: 2.5rem; /* Desktop */
+  }
+}
+
+/* Fluid Typography */
+.fluid-text {
+  font-size: clamp(1rem, 2.5vw, 2rem); /* Min 1rem, Max 2rem */
+}
+```
+
+## Typography untuk Reading Experience
+
+```css
+.article {
+  max-width: 65ch; /* Optimal reading width */
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #2d3748;
+}
+
+.article h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article p {
+  margin-bottom: 1.25rem;
+}
+
+.article blockquote {
+  font-style: italic;
+  border-left: 4px solid #e2e8f0;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #4a5568;
+}
+```
+
+## Contoh Praktis Lengkap
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fafafa;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #1a202c;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: #718096;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+
+      .section-title {
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .body-text {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #4a5568;
+        margin-bottom: 1.25rem;
+      }
+
+      .highlight {
+        background-color: #fff5b0;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: 500;
+      }
+
+      .quote {
+        font-style: italic;
+        font-size: 1.25rem;
+        text-align: center;
+        color: #2b6cb0;
+        margin: 2rem 0;
+        padding: 1rem;
+        border-left: 4px solid #3182ce;
+        background-color: #ebf8ff;
+      }
+
+      .small-text {
+        font-size: 0.875rem;
+        color: #718096;
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .mono-text {
+        font-family: "Courier New", monospace;
+        background-color: #f7fafc;
+        padding: 10px;
+        border-radius: 4px;
+        color: #2d3748;
+        border: 1px solid #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="hero-title">Typography yang Indah</h1>
+      <p class="hero-subtitle">Contoh penggunaan typography dalam CSS</p>
+
+      <h2 class="section-title">Mengapa Typography Penting?</h2>
+      <p class="body-text">
+        Typography yang baik dapat
+        <span class="highlight">meningkatkan readability</span>
+        dan membuat website terlihat lebih profesional. Pemilihan font, ukuran,
+        dan spacing yang tepat sangat mempengaruhi user experience.
+      </p>
+
+      <div class="quote">
+        "Good typography is invisible. Great typography is unforgettable."
+      </div>
+
+      <h2 class="section-title">Contoh Code</h2>
+      <div class="mono-text">
+        font-family: 'Inter', sans-serif;<br />
+        font-size: 1.125rem;<br />
+        line-height: 1.7;
+      </div>
+
+      <p class="small-text">© 2024 Tutorial CSS Typography</p>
+    </div>
+  </body>
+</html>
+```
+
+## Best Practices Typography
+
+### 1. Readability
+
+- Gunakan **font size minimal 16px** untuk body text
+- **Line height 1.4-1.6** untuk readability optimal
+- **Kontras warna** yang cukup antara text dan background
+
+### 2. Hierarchy
+
+- Buat **visual hierarchy** yang jelas dengan ukuran font
+- Gunakan **font weight** untuk membedakan tingkat kepentingan
+- **Consistent spacing** antar elemen
+
+### 3. Performance
+
+- **Limit font variants** - jangan terlalu banyak weight/style
+- Gunakan **font-display: swap** untuk loading yang baik
+- **Preload font** yang penting
+
+```css
+/* Font Loading Optimization */
+@font-face {
+  font-family: "Inter";
+  src: url("inter.woff2") format("woff2");
+  font-display: swap;
+}
+```
+
+## Tools Typography
+
+1. **Google Fonts** - fonts.google.com
+2. **Font Pair** - fontpair.co
+3. **Type Scale** - type-scale.com
+4. **Modular Scale** - modularscale.com
+
+## Latihan
+
+Coba buat:
+
+1. **Blog post layout** dengan typography yang baik
+2. **Landing page** dengan hierarchy yang jelas
+3. **Documentation page** yang mudah dibaca
+
+## Kesimpulan
+
+Typography yang baik adalah kunci website yang **mudah dibaca** dan **menarik**. Ingat untuk:
+
+- **Konsisten** dalam penggunaan font dan ukuran
+- **Perhatikan readability** dengan line height yang tepat
+- **Buat hierarchy** yang jelas dengan ukuran dan weight
+- **Responsive** di berbagai ukuran layar
+
+Selanjutnya kita akan mempelajari **Box Model** - cara mengatur spacing dan layout elemen!

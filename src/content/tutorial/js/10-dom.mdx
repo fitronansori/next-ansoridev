@@ -1,0 +1,594 @@
+# DOM Manipulation JavaScript
+
+DOM Manipulation adalah cara JavaScript **berinteraksi dengan halaman web**. Anda bisa mengubah text, warna, gambar, dan apapun di halaman web secara real-time!
+
+## Apa itu DOM?
+
+DOM (Document Object Model) adalah **representasi halaman web dalam bentuk object** yang bisa dimanipulasi JavaScript. Bayangkan DOM seperti pohon keluarga website.
+
+```javascript
+// DOM memungkinkan kita mengubah halaman web
+document.getElementById("judul").innerHTML = "Judul Baru!";
+document.getElementById("tombol").style.backgroundColor = "blue";
+```
+
+## Mengakses Element HTML
+
+### 1. Berdasarkan ID
+
+```html
+<h1 id="judul_utama">Judul Asli</h1>
+<script>
+  let element_judul = document.getElementById("judul_utama");
+  element_judul.innerHTML = "Judul Sudah Diubah!";
+</script>
+```
+
+### 2. Berdasarkan Class
+
+```html
+<p class="text_info">Info 1</p>
+<p class="text_info">Info 2</p>
+
+<script>
+  let semua_info = document.getElementsByClassName("text_info");
+  semua_info[0].innerHTML = "Info pertama diubah";
+  semua_info[1].innerHTML = "Info kedua diubah";
+</script>
+```
+
+### 3. Berdasarkan Tag
+
+```html
+<p>Paragraf 1</p>
+<p>Paragraf 2</p>
+
+<script>
+  let semua_paragraf = document.getElementsByTagName("p");
+  for (let i = 0; i < semua_paragraf.length; i++) {
+    semua_paragraf[i].style.color = "red";
+  }
+</script>
+```
+
+### 4. Query Selector (Modern Way)
+
+```html
+<div class="container">
+  <h2 id="sub_judul">Sub Judul</h2>
+  <button class="btn_primary">Klik</button>
+</div>
+
+<script>
+  let sub_judul = document.querySelector("#sub_judul");
+  let tombol_primary = document.querySelector(".btn_primary");
+  let container_utama = document.querySelector(".container");
+</script>
+```
+
+## Mengubah Konten
+
+### 1. Mengubah Text
+
+```html
+<p id="teks_sambutan">Selamat datang</p>
+
+<script>
+  function ubah_sambutan(nama_user) {
+    let element_sambutan = document.getElementById("teks_sambutan");
+    element_sambutan.innerHTML = "Selamat datang, " + nama_user + "!";
+  }
+
+  ubah_sambutan("Budi");
+</script>
+```
+
+### 2. Mengubah HTML
+
+```html
+<div id="konten_utama">
+  <p>Konten lama</p>
+</div>
+
+<script>
+  function ganti_konten() {
+    let konten_div = document.getElementById("konten_utama");
+    konten_div.innerHTML = `
+            <h3>Konten Baru!</h3>
+            <p>Ini adalah konten yang sudah diperbarui</p>
+            <button onclick="alert('Tombol diklik!')">Klik Saya</button>
+        `;
+  }
+
+  ganti_konten();
+</script>
+```
+
+## Mengubah Style CSS
+
+### 1. Mengubah Warna
+
+```html
+<h1 id="judul_colorful">Judul Warna</h1>
+<button onclick="ubah_warna_judul()">Ubah Warna</button>
+
+<script>
+  function ubah_warna_judul() {
+    let judul_element = document.getElementById("judul_colorful");
+    judul_element.style.color = "blue";
+    judul_element.style.backgroundColor = "yellow";
+    judul_element.style.padding = "10px";
+  }
+</script>
+```
+
+### 2. Mengubah Ukuran dan Font
+
+```html
+<p id="teks_format">Text yang akan diformat</p>
+<button onclick="format_text()">Format Text</button>
+
+<script>
+  function format_text() {
+    let text_element = document.getElementById("teks_format");
+    text_element.style.fontSize = "24px";
+    text_element.style.fontWeight = "bold";
+    text_element.style.fontFamily = "Arial";
+    text_element.style.textAlign = "center";
+  }
+</script>
+```
+
+## Event Handling
+
+### 1. Click Event
+
+```html
+<button id="tombol_klik">Klik Saya!</button>
+<p id="hasil_klik">Belum diklik</p>
+
+<script>
+  let tombol_element = document.getElementById("tombol_klik");
+  let hasil_element = document.getElementById("hasil_klik");
+  let jumlah_klik = 0;
+
+  tombol_element.onclick = function () {
+    jumlah_klik++;
+    hasil_element.innerHTML = "Tombol sudah diklik " + jumlah_klik + " kali";
+
+    if (jumlah_klik >= 5) {
+      tombol_element.style.backgroundColor = "green";
+      tombol_element.innerHTML = "Wow! " + jumlah_klik + " klik!";
+    }
+  };
+</script>
+```
+
+### 2. Input Event
+
+```html
+<input type="text" id="input_nama" placeholder="Ketik nama Anda" />
+<p id="output_nama">Nama akan muncul di sini</p>
+
+<script>
+  let input_element = document.getElementById("input_nama");
+  let output_element = document.getElementById("output_nama");
+
+  input_element.oninput = function () {
+    let nama_user = input_element.value;
+    if (nama_user.length > 0) {
+      output_element.innerHTML = "Halo, " + nama_user + "!";
+      output_element.style.color = "green";
+    } else {
+      output_element.innerHTML = "Nama akan muncul di sini";
+      output_element.style.color = "black";
+    }
+  };
+</script>
+```
+
+## Contoh Project Sederhana
+
+### 1. Counter App
+
+Buat file `counter.html`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter App</title>
+    <style>
+      .container_counter {
+        text-align: center;
+        padding: 20px;
+        font-family: Arial;
+      }
+      .angka_counter {
+        font-size: 48px;
+        color: blue;
+        margin: 20px;
+      }
+      .btn_counter {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container_counter">
+      <h1>Counter App</h1>
+      <div class="angka_counter" id="display_counter">0</div>
+
+      <button class="btn_counter" onclick="tambah_counter()">+ Tambah</button>
+      <button class="btn_counter" onclick="kurang_counter()">- Kurang</button>
+      <button class="btn_counter" onclick="reset_counter()">Reset</button>
+    </div>
+
+    <script>
+      let nilai_counter = 0;
+      let display_element = document.getElementById("display_counter");
+
+      function tambah_counter() {
+        nilai_counter++;
+        update_display();
+      }
+
+      function kurang_counter() {
+        nilai_counter--;
+        update_display();
+      }
+
+      function reset_counter() {
+        nilai_counter = 0;
+        update_display();
+      }
+
+      function update_display() {
+        display_element.innerHTML = nilai_counter;
+
+        // Ubah warna berdasarkan nilai
+        if (nilai_counter > 0) {
+          display_element.style.color = "green";
+        } else if (nilai_counter < 0) {
+          display_element.style.color = "red";
+        } else {
+          display_element.style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>
+```
+
+### 2. To-Do List Sederhana
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <style>
+      .container_todo {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        font-family: Arial;
+      }
+      .input_todo {
+        width: 70%;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .btn_add {
+        padding: 10px 15px;
+        font-size: 16px;
+        background: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .item_todo {
+        padding: 10px;
+        margin: 5px 0;
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container_todo">
+      <h1>My To-Do List</h1>
+
+      <div>
+        <input
+          type="text"
+          id="input_task"
+          class="input_todo"
+          placeholder="Tambah task baru..."
+        />
+        <button class="btn_add" onclick="tambah_task()">Tambah</button>
+      </div>
+
+      <div id="list_todo"></div>
+    </div>
+
+    <script>
+      let daftar_task = [];
+      let input_element = document.getElementById("input_task");
+      let list_element = document.getElementById("list_todo");
+
+      function tambah_task() {
+        let task_baru = input_element.value;
+
+        if (task_baru.trim() !== "") {
+          daftar_task.push(task_baru);
+          input_element.value = "";
+          tampilkan_task();
+        } else {
+          alert("Task tidak boleh kosong!");
+        }
+      }
+
+      function hapus_task(index_task) {
+        daftar_task.splice(index_task, 1);
+        tampilkan_task();
+      }
+
+      function tampilkan_task() {
+        let html_content = "";
+
+        for (let i = 0; i < daftar_task.length; i++) {
+          html_content += `
+                    <div class="item_todo">
+                        ${i + 1}. ${daftar_task[i]}
+                        <button onclick="hapus_task(${i})" style="float: right; background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Hapus</button>
+                    </div>
+                `;
+        }
+
+        list_element.innerHTML = html_content;
+      }
+
+      // Event listener untuk Enter key
+      input_element.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          tambah_task();
+        }
+      });
+    </script>
+  </body>
+</html>
+```
+
+## Latihan DOM Manipulation
+
+### Latihan 1: Theme Switcher
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Theme Switcher</title>
+    <style>
+      .theme_light {
+        background-color: white;
+        color: black;
+      }
+      .theme_dark {
+        background-color: #333;
+        color: white;
+      }
+      .container_theme {
+        padding: 20px;
+        text-align: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="theme_light">
+    <div class="container_theme">
+      <h1 id="judul_theme">Theme Switcher</h1>
+      <p id="desc_theme">Klik tombol untuk mengubah tema</p>
+
+      <button onclick="ganti_theme()">Ganti Tema</button>
+      <button onclick="random_color()">Warna Random</button>
+    </div>
+
+    <script>
+      let tema_gelap = false;
+
+      function ganti_theme() {
+        let body_element = document.body;
+
+        if (tema_gelap) {
+          body_element.className = "theme_light";
+          tema_gelap = false;
+        } else {
+          body_element.className = "theme_dark";
+          tema_gelap = true;
+        }
+      }
+
+      function random_color() {
+        let warna_random =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = warna_random;
+      }
+    </script>
+  </body>
+</html>
+```
+
+### Latihan 2: Form Validation
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation</title>
+    <style>
+      .form_container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .form_group {
+        margin: 10px 0;
+      }
+      .form_input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+      }
+      .error_message {
+        color: red;
+        font-size: 12px;
+      }
+      .success_message {
+        color: green;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form_container">
+      <h2>Form Registrasi</h2>
+
+      <div class="form_group">
+        <label>Nama Lengkap:</label>
+        <input type="text" id="input_nama" class="form_input" />
+        <div id="error_nama" class="error_message"></div>
+      </div>
+
+      <div class="form_group">
+        <label>Email:</label>
+        <input type="email" id="input_email" class="form_input" />
+        <div id="error_email" class="error_message"></div>
+      </div>
+
+      <div class="form_group">
+        <label>Password:</label>
+        <input type="password" id="input_password" class="form_input" />
+        <div id="error_password" class="error_message"></div>
+      </div>
+
+      <button onclick="validasi_form()">Daftar</button>
+
+      <div id="status_form"></div>
+    </div>
+
+    <script>
+      function validasi_form() {
+        let nama_value = document.getElementById("input_nama").value;
+        let email_value = document.getElementById("input_email").value;
+        let password_value = document.getElementById("input_password").value;
+
+        let valid_form = true;
+
+        // Reset error messages
+        document.getElementById("error_nama").innerHTML = "";
+        document.getElementById("error_email").innerHTML = "";
+        document.getElementById("error_password").innerHTML = "";
+
+        // Validasi nama
+        if (nama_value.length < 3) {
+          document.getElementById("error_nama").innerHTML =
+            "Nama minimal 3 karakter";
+          valid_form = false;
+        }
+
+        // Validasi email
+        if (!email_value.includes("@") || !email_value.includes(".")) {
+          document.getElementById("error_email").innerHTML =
+            "Format email tidak valid";
+          valid_form = false;
+        }
+
+        // Validasi password
+        if (password_value.length < 6) {
+          document.getElementById("error_password").innerHTML =
+            "Password minimal 6 karakter";
+          valid_form = false;
+        }
+
+        // Status form
+        let status_element = document.getElementById("status_form");
+        if (valid_form) {
+          status_element.innerHTML =
+            "<div class='success_message'>✅ Registrasi berhasil!</div>";
+        } else {
+          status_element.innerHTML =
+            "<div class='error_message'>❌ Mohon perbaiki error di atas</div>";
+        }
+      }
+    </script>
+  </body>
+</html>
+```
+
+## Tips DOM Manipulation
+
+### 1. Cache Element References
+
+```javascript
+// ❌ Tidak efisien
+function update_content() {
+  document.getElementById("title").innerHTML = "New Title";
+  document.getElementById("title").style.color = "red";
+  document.getElementById("title").style.fontSize = "20px";
+}
+
+// ✅ Efisien
+function update_content() {
+  let title_element = document.getElementById("title");
+  title_element.innerHTML = "New Title";
+  title_element.style.color = "red";
+  title_element.style.fontSize = "20px";
+}
+```
+
+### 2. Use Modern Event Listeners
+
+```javascript
+// ❌ Cara lama
+element.onclick = function () {
+  /* ... */
+};
+
+// ✅ Cara modern
+element.addEventListener("click", function () {
+  /* ... */
+});
+```
+
+### 3. Check if Element Exists
+
+```javascript
+function update_element(element_id) {
+  let element = document.getElementById(element_id);
+  if (element) {
+    element.innerHTML = "Updated!";
+  } else {
+    console.log("Element not found: " + element_id);
+  }
+}
+```
+
+## Kesimpulan
+
+**DOM Manipulation membuat website jadi interaktif!**
+
+**Yang sudah dipelajari:**
+
+- ✅ Mengakses element HTML dengan berbagai cara
+- ✅ Mengubah konten dan style element
+- ✅ Event handling (click, input, dll)
+- ✅ Project: Counter, To-Do List, Theme Switcher
+- ✅ Form validation dengan JavaScript
+- ✅ Tips dan best practices
+
+**Next:** Selamat! Anda sudah menguasai dasar-dasar JavaScript! 🎉

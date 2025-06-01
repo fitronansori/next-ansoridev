@@ -1,0 +1,564 @@
+# Object dan JSON: Struktur Data Kompleks
+
+Object adalah **struktur data** yang menyimpan informasi dalam bentuk pasangan key-value. Bayangkan seperti kartu identitas yang memiliki berbagai informasi terorganisir.
+
+## Apa itu Object?
+
+Object memungkinkan kita:
+
+- **Mengelompokkan data** yang saling berhubungan
+- **Menyimpan informasi** dengan label yang jelas
+- **Membuat struktur data** yang lebih kompleks
+- **Merepresentasikan** dunia nyata dalam kode
+
+## Membuat Object
+
+### 1. Object Sederhana
+
+```javascript
+let data_siswa = {
+  nama: "Ahmad Rizki",
+  umur: 17,
+  kelas: "12 IPA 1",
+  aktif: true,
+};
+
+console.log(data_siswa);
+// Output: {nama: "Ahmad Rizki", umur: 17, kelas: "12 IPA 1", aktif: true}
+```
+
+### 2. Object dengan Method
+
+```javascript
+let data_mobil = {
+  merk: "Toyota",
+  model: "Avanza",
+  tahun: 2020,
+  warna: "putih",
+
+  // Method (function dalam object)
+  info: function () {
+    return this.merk + " " + this.model + " tahun " + this.tahun;
+  },
+
+  ubah_warna: function (warna_baru) {
+    this.warna = warna_baru;
+    console.log("Warna diubah menjadi: " + this.warna);
+  },
+};
+
+console.log(data_mobil.info()); // "Toyota Avanza tahun 2020"
+data_mobil.ubah_warna("merah"); // "Warna diubah menjadi: merah"
+```
+
+## Mengakses Data Object
+
+### 1. Dot Notation
+
+```javascript
+let profil_user = {
+  nama_lengkap: "Siti Aminah",
+  email: "siti@email.com",
+  umur: 25,
+  kota: "Jakarta",
+};
+
+console.log(profil_user.nama_lengkap); // "Siti Aminah"
+console.log(profil_user.email); // "siti@email.com"
+console.log(profil_user.umur); // 25
+console.log(profil_user.kota); // "Jakarta"
+```
+
+### 2. Bracket Notation
+
+```javascript
+let data_produk = {
+  "nama produk": "Laptop Gaming",
+  "harga jual": 15000000,
+  "stok tersedia": 5,
+  "kategori utama": "elektronik",
+};
+
+console.log(data_produk["nama produk"]); // "Laptop Gaming"
+console.log(data_produk["harga jual"]); // 15000000
+console.log(data_produk["stok tersedia"]); // 5
+
+// Akses dengan variabel
+let key = "kategori utama";
+console.log(data_produk[key]); // "elektronik"
+```
+
+### 3. Mengubah dan Menambah Data
+
+```javascript
+let biodata = {
+  nama: "Budi Santoso",
+  umur: 22,
+  pekerjaan: "mahasiswa",
+};
+
+console.log("Sebelum:", biodata);
+
+// Ubah data existing
+biodata.umur = 23;
+biodata.pekerjaan = "programmer";
+
+// Tambah data baru
+biodata.alamat = "Jakarta";
+biodata.hobby = "coding";
+
+console.log("Sesudah:", biodata);
+```
+
+## Object dalam Array
+
+```javascript
+let daftar_karyawan = [
+  {
+    nama: "Ali Rahman",
+    posisi: "Frontend Developer",
+    gaji: 8000000,
+    pengalaman: 2,
+  },
+  {
+    nama: "Sarah Indah",
+    posisi: "Backend Developer",
+    gaji: 9000000,
+    pengalaman: 3,
+  },
+  {
+    nama: "Budi Prakoso",
+    posisi: "UI/UX Designer",
+    gaji: 7000000,
+    pengalaman: 1,
+  },
+];
+
+// Akses data
+console.log("=== DAFTAR KARYAWAN ===");
+for (let i = 0; i < daftar_karyawan.length; i++) {
+  let karyawan = daftar_karyawan[i];
+  console.log(`${i + 1}. ${karyawan.nama}`);
+  console.log(`   Posisi: ${karyawan.posisi}`);
+  console.log(`   Gaji: Rp ${karyawan.gaji.toLocaleString()}`);
+  console.log(`   Pengalaman: ${karyawan.pengalaman} tahun`);
+  console.log("---");
+}
+```
+
+## Nested Object (Object dalam Object)
+
+```javascript
+let data_sekolah = {
+  nama_sekolah: "SMA Negeri 1 Jakarta",
+  alamat: {
+    jalan: "Jl. Merdeka No. 123",
+    kecamatan: "Gambir",
+    kota: "Jakarta Pusat",
+    kode_pos: "10110",
+  },
+  kontak: {
+    telepon: "021-12345678",
+    email: "info@sman1jkt.sch.id",
+    website: "www.sman1jakarta.sch.id",
+  },
+  fasilitas: [
+    "perpustakaan",
+    "lab komputer",
+    "lab bahasa",
+    "lapangan olahraga",
+  ],
+};
+
+// Akses nested object
+console.log("Nama sekolah:", data_sekolah.nama_sekolah);
+console.log(
+  "Alamat lengkap:",
+  data_sekolah.alamat.jalan + ", " + data_sekolah.alamat.kota
+);
+console.log("Email:", data_sekolah.kontak.email);
+console.log("Fasilitas pertama:", data_sekolah.fasilitas[0]);
+```
+
+## Object Methods Penting
+
+### 1. Object.keys() - Mendapat Semua Key
+
+```javascript
+let laptop_spec = {
+  processor: "Intel Core i5",
+  ram: "8GB DDR4",
+  storage: "512GB SSD",
+  vga: "Intel UHD Graphics",
+};
+
+let daftar_spec = Object.keys(laptop_spec);
+console.log("Spesifikasi yang tersedia:", daftar_spec);
+// ["processor", "ram", "storage", "vga"]
+
+// Loop melalui semua keys
+for (let spec of daftar_spec) {
+  console.log(spec + ": " + laptop_spec[spec]);
+}
+```
+
+### 2. Object.values() - Mendapat Semua Value
+
+```javascript
+let nilai_pelajaran = {
+  matematika: 85,
+  bahasa_indonesia: 90,
+  bahasa_inggris: 88,
+  ipa: 92,
+};
+
+let semua_nilai = Object.values(nilai_pelajaran);
+console.log("Semua nilai:", semua_nilai); // [85, 90, 88, 92]
+
+// Hitung rata-rata
+let total = semua_nilai.reduce((sum, nilai) => sum + nilai, 0);
+let rata_rata = total / semua_nilai.length;
+console.log("Rata-rata:", rata_rata);
+```
+
+### 3. Object.entries() - Mendapat Key-Value Pairs
+
+```javascript
+let harga_menu = {
+  nasi_goreng: 25000,
+  mie_ayam: 20000,
+  gado_gado: 18000,
+  rendang: 35000,
+};
+
+let daftar_menu = Object.entries(harga_menu);
+console.log("=== MENU RESTORAN ===");
+daftar_menu.forEach(([menu, harga], index) => {
+  console.log(
+    `${index + 1}. ${menu.replace("_", " ")}: Rp ${harga.toLocaleString()}`
+  );
+});
+```
+
+## JSON (JavaScript Object Notation)
+
+JSON adalah format untuk **pertukaran data** yang mudah dibaca manusia dan komputer.
+
+### 1. Mengubah Object ke JSON String
+
+```javascript
+let user_profile = {
+  id: 123,
+  username: "johndoe",
+  email: "john@email.com",
+  active: true,
+  hobbies: ["reading", "coding", "gaming"],
+};
+
+// Object to JSON string
+let json_string = JSON.stringify(user_profile);
+console.log("JSON String:");
+console.log(json_string);
+
+// JSON string dengan format yang rapi
+let json_pretty = JSON.stringify(user_profile, null, 2);
+console.log("JSON Pretty:");
+console.log(json_pretty);
+```
+
+### 2. Mengubah JSON String ke Object
+
+```javascript
+let json_data = '{"nama":"Ahmad","umur":25,"kota":"Bandung","status":"aktif"}';
+
+// JSON string to Object
+let user_object = JSON.parse(json_data);
+console.log("Object dari JSON:", user_object);
+console.log("Nama:", user_object.nama);
+console.log("Umur:", user_object.umur);
+```
+
+### 3. Working with API Response (Simulasi)
+
+```javascript
+// Simulasi response dari API
+let api_response = `{
+    "status": "success",
+    "data": {
+        "users": [
+            {"id": 1, "name": "Ali", "role": "admin"},
+            {"id": 2, "name": "Budi", "role": "user"},
+            {"id": 3, "name": "Citra", "role": "moderator"}
+        ],
+        "total": 3
+    }
+}`;
+
+// Parse JSON response
+let response_data = JSON.parse(api_response);
+
+console.log("Status:", response_data.status);
+console.log("Total users:", response_data.data.total);
+
+console.log("=== DAFTAR USERS ===");
+response_data.data.users.forEach((user) => {
+  console.log(`ID: ${user.id}, Name: ${user.name}, Role: ${user.role}`);
+});
+```
+
+## Contoh Praktis: Sistem Perpustakaan
+
+```javascript
+let perpustakaan = {
+  nama: "Perpustakaan Kota Jakarta",
+  alamat: "Jl. Proklamasi No. 45",
+  books: [],
+
+  // Method untuk menambah buku
+  tambah_buku: function (isbn, judul, penulis, tahun) {
+    let buku_baru = {
+      isbn: isbn,
+      judul: judul,
+      penulis: penulis,
+      tahun_terbit: tahun,
+      tersedia: true,
+      tanggal_ditambah: new Date().toLocaleDateString(),
+    };
+
+    this.books.push(buku_baru);
+    console.log(`✅ Buku "${judul}" berhasil ditambahkan`);
+  },
+
+  // Method untuk mencari buku
+  cari_buku: function (kata_kunci) {
+    let hasil_pencarian = this.books.filter(
+      (buku) =>
+        buku.judul.toLowerCase().includes(kata_kunci.toLowerCase()) ||
+        buku.penulis.toLowerCase().includes(kata_kunci.toLowerCase())
+    );
+
+    if (hasil_pencarian.length > 0) {
+      console.log(`🔍 Ditemukan ${hasil_pencarian.length} buku:`);
+      hasil_pencarian.forEach((buku, index) => {
+        console.log(
+          `${index + 1}. "${buku.judul}" - ${buku.penulis} (${
+            buku.tahun_terbit
+          })`
+        );
+      });
+    } else {
+      console.log("❌ Buku tidak ditemukan");
+    }
+
+    return hasil_pencarian;
+  },
+
+  // Method untuk meminjam buku
+  pinjam_buku: function (isbn) {
+    let buku = this.books.find((book) => book.isbn === isbn);
+
+    if (buku) {
+      if (buku.tersedia) {
+        buku.tersedia = false;
+        buku.tanggal_dipinjam = new Date().toLocaleDateString();
+        console.log(`📚 Buku "${buku.judul}" berhasil dipinjam`);
+      } else {
+        console.log(`❌ Buku "${buku.judul}" sedang dipinjam`);
+      }
+    } else {
+      console.log("❌ Buku tidak ditemukan");
+    }
+  },
+
+  // Method untuk menampilkan semua buku
+  tampilkan_semua_buku: function () {
+    console.log(`\n=== ${this.nama.toUpperCase()} ===`);
+    console.log(`Alamat: ${this.alamat}`);
+    console.log(`Total buku: ${this.books.length}\n`);
+
+    if (this.books.length === 0) {
+      console.log("Belum ada buku di perpustakaan");
+      return;
+    }
+
+    this.books.forEach((buku, index) => {
+      let status = buku.tersedia ? "✅ Tersedia" : "❌ Dipinjam";
+      console.log(`${index + 1}. "${buku.judul}"`);
+      console.log(`   Penulis: ${buku.penulis}`);
+      console.log(`   Tahun: ${buku.tahun_terbit}`);
+      console.log(`   ISBN: ${buku.isbn}`);
+      console.log(`   Status: ${status}`);
+      console.log("---");
+    });
+  },
+};
+
+// Test sistem perpustakaan
+perpustakaan.tambah_buku(
+  "978-1234567890",
+  "Belajar JavaScript",
+  "Ahmad Rizki",
+  2023
+);
+perpustakaan.tambah_buku(
+  "978-0987654321",
+  "Web Development Modern",
+  "Sarah Indah",
+  2022
+);
+perpustakaan.tambah_buku(
+  "978-1122334455",
+  "Database MySQL",
+  "Budi Prakoso",
+  2021
+);
+
+perpustakaan.tampilkan_semua_buku();
+perpustakaan.cari_buku("javascript");
+perpustakaan.pinjam_buku("978-1234567890");
+perpustakaan.tampilkan_semua_buku();
+```
+
+## Local Storage dengan JSON
+
+```javascript
+// Sistem penyimpanan data user di browser
+let user_data_manager = {
+  // Simpan data ke localStorage
+  simpan_user: function (user_info) {
+    let json_string = JSON.stringify(user_info);
+    localStorage.setItem("userData", json_string);
+    console.log("✅ Data user berhasil disimpan");
+  },
+
+  // Ambil data dari localStorage
+  ambil_user: function () {
+    let json_string = localStorage.getItem("userData");
+    if (json_string) {
+      let user_info = JSON.parse(json_string);
+      console.log("📥 Data user ditemukan:", user_info);
+      return user_info;
+    } else {
+      console.log("❌ Data user tidak ditemukan");
+      return null;
+    }
+  },
+
+  // Update data user
+  update_user: function (field, value) {
+    let user_info = this.ambil_user();
+    if (user_info) {
+      user_info[field] = value;
+      this.simpan_user(user_info);
+      console.log(`✅ ${field} berhasil diupdate menjadi: ${value}`);
+    }
+  },
+
+  // Hapus data user
+  hapus_user: function () {
+    localStorage.removeItem("userData");
+    console.log("🗑️ Data user berhasil dihapus");
+  },
+};
+
+// Test localStorage
+let profil_saya = {
+  nama: "Ahmad Rizki",
+  email: "ahmad@email.com",
+  umur: 25,
+  last_login: new Date().toISOString(),
+};
+
+user_data_manager.simpan_user(profil_saya);
+user_data_manager.ambil_user();
+user_data_manager.update_user("umur", 26);
+user_data_manager.ambil_user();
+```
+
+## Tips Object & JSON
+
+**💡 Gunakan nama key yang konsisten:**
+
+```javascript
+// ✅ Konsisten menggunakan camelCase
+let user_info = {
+  firstName: "Ahmad",
+  lastName: "Rizki",
+  phoneNumber: "08123456789",
+};
+
+// ✅ Konsisten menggunakan snake_case
+let user_info2 = {
+  first_name: "Ahmad",
+  last_name: "Rizki",
+  phone_number: "08123456789",
+};
+```
+
+**💡 Validasi JSON sebelum parse:**
+
+```javascript
+function parse_json_aman(json_string) {
+  try {
+    let object = JSON.parse(json_string);
+    return object;
+  } catch (error) {
+    console.log("❌ JSON tidak valid:", error.message);
+    return null;
+  }
+}
+
+// Test
+let json_valid = '{"nama": "Ahmad", "umur": 25}';
+let json_invalid = '{"nama": "Ahmad", "umur": }'; // Invalid JSON
+
+console.log(parse_json_aman(json_valid)); // Object
+console.log(parse_json_aman(json_invalid)); // null
+```
+
+**💡 Deep copy object:**
+
+```javascript
+let original_data = {
+  nama: "Ahmad",
+  alamat: {
+    kota: "Jakarta",
+    kode_pos: "12345",
+  },
+};
+
+// ❌ Shallow copy (berbagi reference)
+let copy_shallow = original_data;
+copy_shallow.nama = "Budi";
+console.log(original_data.nama); // "Budi" (ikut berubah!)
+
+// ✅ Deep copy (independent)
+let copy_deep = JSON.parse(JSON.stringify(original_data));
+copy_deep.nama = "Citra";
+console.log(original_data.nama); // "Ahmad" (tidak berubah)
+```
+
+## Ringkasan
+
+**Object adalah:**
+
+- Struktur data key-value
+- Bisa berisi berbagai tipe data
+- Bisa memiliki method (function)
+- Representasi data dunia nyata
+
+**JSON berguna untuk:**
+
+- Pertukaran data antar sistem
+- Penyimpanan data di localStorage
+- Komunikasi dengan API
+- Konfigurasi aplikasi
+
+**Method penting:**
+
+- `Object.keys()` - daftar key
+- `Object.values()` - daftar value
+- `JSON.stringify()` - object ke string
+- `JSON.parse()` - string ke object
+
+**Siap belajar Async JavaScript? Mari ke level selanjutnya! ⚡**
