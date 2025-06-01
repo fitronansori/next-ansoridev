@@ -26,7 +26,12 @@ function getContentList(slug: string) {
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".mdx"))
-    .sort()
+    .sort((a, b) => {
+      // Extract number from filename (e.g., "1-pengenalan.mdx" -> 1)
+      const aNum = parseInt(a.match(/^(\d+)-/)?.[1] || "0");
+      const bNum = parseInt(b.match(/^(\d+)-/)?.[1] || "0");
+      return aNum - bNum;
+    })
     .map((f) => ({
       file_name: f,
       clean_file_name: f.replace(/^[0-9]+-/, "").replace(/\.mdx$/, ""),
