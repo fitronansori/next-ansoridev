@@ -24,7 +24,7 @@ const TutorialCard = ({ tutorial }: TutorialCardProps) => {
             fill
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="size-full object-cover"
+            className="object-cover"
           />
         </div>
       </CardHeader>
