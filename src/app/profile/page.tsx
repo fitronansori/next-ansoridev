@@ -21,7 +21,8 @@ const ProfilePage = () => {
             alt="Profile Picture Ansori Dev"
             width={300}
             height={300}
-            sizes="100%"
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="size-[120px] rounded-full object-cover"
           />
 

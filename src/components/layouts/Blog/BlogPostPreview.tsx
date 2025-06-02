@@ -18,6 +18,7 @@ export const BlogPostPreview: FunctionComponent<{
             className="object-cover"
             src={post.image || "/assets/images/placeholder.webp"}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </Link>
