@@ -289,3 +289,29 @@ export const tutorials_data: TutorialType[] = [
     image: "/assets/images/t-react.png",
   },
 ];
+
+export interface ITemplate {
+  id: number;
+  title: string;
+  desc: string;
+  tools: string[];
+  badge: string;
+  github: string;
+  website: string;
+  youtube: string;
+  image: string;
+}
+
+export const templateData: ITemplate[] = [
+  {
+    id: 1,
+    title: "Landing Page Gift Bucket",
+    desc: "Website Layanan Gift Bucket Custom untuk berbagai acara.",
+    tools: ["React.js", "Tailwind CSS", "TypeScript", "Next.js"],
+    badge: "Web Development",
+    github: "https://github.com/fitronansori/next-giftbucket",
+    website: "https://giftbucket.vercel.app/",
+    youtube: "https://www.youtube.com/@ansoridev/videos",
+    image: "/assets/images/template1.png",
+  },
+];
