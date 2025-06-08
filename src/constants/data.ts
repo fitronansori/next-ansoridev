@@ -3,11 +3,7 @@ import { IconType } from "react-icons";
 export const navLinks = [
   {
     name: "Digital Product",
-    href: "/digital-product",
-  },
-  {
-    name: "Tutorial",
-    href: "/tutorial",
+    href: "https://lynk.id/ansoridev",
   },
   {
     name: "Templates",
@@ -16,23 +12,6 @@ export const navLinks = [
   {
     name: "Blog",
     href: "/blog",
-  },
-  {
-    name: "Services",
-    href: "/services",
-  },
-];
-
-export const supportData = [
-  {
-    title: "Trakteer",
-    link: "https://trakteer.id/ansoridev/tip",
-    icon: "/assets/logo/trakteer.png",
-  },
-  {
-    title: "Saweria",
-    link: "https://saweria.co/fitronansori",
-    icon: "/assets/logo/saweria.png",
   },
 ];
 
@@ -253,40 +232,6 @@ export const certificatesData = [
     badge: "Data Science",
     awardBy: "MSIB Rakamin Academy",
     date: "Desember 2023",
-  },
-];
-
-export type TutorialType = {
-  slug: string;
-  title: string;
-  desc: string;
-  image: string;
-};
-
-export const tutorials_data: TutorialType[] = [
-  {
-    slug: "html",
-    title: "Tutorial HTML",
-    desc: "Belajar dasar-dasar HTML untuk membangun struktur halaman web.",
-    image: "/assets/images/t-html.png",
-  },
-  {
-    slug: "css",
-    title: "Tutorial CSS",
-    desc: "Pelajari cara mempercantik tampilan web dengan CSS.",
-    image: "/assets/images/t-css.png",
-  },
-  {
-    slug: "js",
-    title: "Tutorial JavaScript",
-    desc: "Kuasai JavaScript untuk membuat web interaktif dan dinamis.",
-    image: "/assets/images/t-js.png",
-  },
-  {
-    slug: "react",
-    title: "Tutorial React",
-    desc: "Bangun aplikasi web modern dengan React.",
-    image: "/assets/images/t-react.png",
   },
 ];
 
